@@ -12,13 +12,13 @@ This project features a variety of login page designs, each with its own unique 
 
 ## 🎨 Completed Designs
 
-| Day | Theme | Preview | Description |
-|-----|-------|---------|-------------|
-| 1 | Binary Theme | [View Live](https://aymalkhalid.github.io/100daysofhtmlCSS/day_1.html) | A Matrix-inspired login page with animated binary code background |
-| 2 | Wave Gradient | [View Live](https://aymalkhalid.github.io/100daysofhtmlCSS/day_2.html) | Modern professional design with smooth flowing wave animations |
-| 3 | Neon Cyberpunk | Coming soon | Futuristic cyberpunk design with neon effects and glitch animations |
-| 4 | Nature Theme | Coming soon | Calming organic design with natural elements and split-screen layout |
-| 5 | Glass Morphism | Coming soon | Elegant minimalist design with frosted glass effect and depth layers |
+| Day | Theme | Description |
+|-----|-------|-------------|
+| 1 | Binary Theme | A Matrix-inspired login page with animated binary code background (`day_1.html` + `style_day1.css`) |
+| 2 | Wave Gradient | Modern professional design with smooth flowing wave animations (`day_2.html` + `style_day2.css`) |
+| 3 | Neon Cyberpunk | Futuristic cyberpunk design with neon effects and glitch animations (`day_3.html` + `style_day3.css`) |
+| 4 | Nature Theme | Calming organic design with natural elements and split-screen layout (`day_4.html` + `style_day4.css`) |
+| 5 | Glass Morphism | Elegant minimalist design with frosted glass effect and depth layers (`day_5.html` + `style_day5.css`) |
 
 ## 🚀 Features
 
@@ -32,8 +32,8 @@ Each login page includes:
 
 ## 💻 Technologies Used
 
-- HTML5
-- CSS3 
+- HTML5 (separate HTML file for each design)
+- CSS3 (dedicated CSS file for each design) 
 - Vanilla JavaScript (for animations and interactions)
 - Google Fonts
 - Modern CSS techniques (Flexbox, Grid, Variables, etc.)
@@ -76,10 +76,14 @@ To view these designs locally:
 2. Open any HTML file in your browser:
    ```bash
    cd 100daysofhtmlCSS
-   # Then open any HTML file in your browser
+   # Open any day_X.html file in your browser
    ```
 
-No build steps or dependencies required!
+**Important Notes:**
+- Each HTML file (`day_X.html`) is already linked to its corresponding CSS file (`style_dayX.css`)
+- No build steps or dependencies required
+- Files can be run locally or deployed to any web hosting platform
+- All resources are self-contained within the repository
 
 ## 📝 License
 
