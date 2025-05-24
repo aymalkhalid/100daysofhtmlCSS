@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: #00ff41; /* Matrix green */
+    --primary-dark: #008f11;
+    --primary-glow: rgba(0, 255, 65, 0.5);
+    --text-color: #333;
+    --text-light: #666;
+    --bg-color: #000;
+    --container-bg: rgba(245, 245, 245, 0.95);
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 255, 65, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Binary code background effect */
+.binary-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 1rem;
+    color: var(--primary-color);
+    opacity: 0.15;
+    white-space: pre;
+    user-select: none;
+    line-height: 1.2;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.page-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+.login-container {
+    background: var(--container-bg);
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 var(--shadow-color);
+    min-width: 320px;
+    max-width: 380px;
+    width: 100%;
+    animation: pop-in 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes pop-in {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(135deg, var(--primary-color), transparent 80%);
+    border-radius: 19px;
+    z-index: -1;
+    opacity: 0.5;
+    filter: blur(1px);
+}
+
+h2 {
+    margin-bottom: 1.8rem;
+    color: var(--primary-dark);
+    font-weight: 700;
+    font-size: 1.8rem;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 0.5rem auto 0;
+    border-radius: 3px;
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.icon {
+    font-style: normal;
+    margin-right: 0.3rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    background: #fff;
+    color: var(--text-color);
+}
+
+.form-group.focused input {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--shadow-color);
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.forgot-link {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 0.85rem;
+    color: var(--primary-dark);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.forgot-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    user-select: none;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    border-color: var(--primary-color);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary-color));
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: all 0.3s;
+    margin-bottom: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+button[type="submit"]:active {
+    transform: translateY(-1px);
+}
+
+.arrow {
+    margin-left: 8px;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+button[type="submit"]:hover .arrow {
+    transform: translateX(5px);
+}
+
+.login-footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.signup-link {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.signup-link:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 2rem 1.5rem;
+        min-width: 300px;
+    }
+}

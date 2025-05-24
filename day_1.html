@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page - Improved Matrix</title>
+    <link rel="stylesheet" href="style_day1.css">
+</head>
+<body>
+    <div class="binary-bg" id="binaryBg"></div>
+    <div class="page-container">
+        <div class="login-container">
+            <h2>Login</h2>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="username">
+                        <i class="icon">👤</i> Username
+                    </label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">
+                        <i class="icon">🔒</i> Password
+                    </label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                <div class="remember-me">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="remember" name="remember">
+                        <span class="checkmark"></span>
+                        Remember me
+                    </label>
+                </div>
+                <button type="submit">Access System <span class="arrow">→</span></button>
+                <div class="login-footer">
+                    <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Binary background effect
+        const binaryBg = document.getElementById('binaryBg');
+        
+        function createBinaryEffect() {
+            binaryBg.innerHTML = '';
+            // Use slightly higher density to ensure full coverage
+            const charWidth = 10; // Pixels per character (approximate)
+            const charHeight = 16; // Pixels per line (approximate)
+            
+            // Add buffer to ensure we cover the entire screen
+            const width = Math.ceil(window.innerWidth / charWidth) + 5;
+            const height = Math.ceil(window.innerHeight / charHeight) + 5;
+            
+            let str = '';
+            for (let i = 0; i < height; i++) {
+                for (let j = 0; j < width; j++) {
+                    // Generate only 0s and 1s for binary effect
+                    str += Math.random() > 0.5 ? '1' : '0';
+                }
+                str += '\n';
+            }
+            binaryBg.textContent = str;
+            
+            setTimeout(createBinaryEffect, 120);
+        }
+        
+        createBinaryEffect();
+
+        // Focus effect for form inputs
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('focused');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('focused');
+            });
+        });
+    </script>
+</body>
+</html>
