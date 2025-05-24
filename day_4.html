@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page - Nature Theme</title>
+    <link rel="stylesheet" href="style_day4.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="leaves-container" id="leavesContainer"></div>
+    <div class="overlay"></div>
+    
+    <div class="page-container">
+        <div class="login-container">
+            <div class="login-left">
+                <div class="logo">
+                    <div class="leaf-logo">
+                        <span class="leaf"></span>
+                        <span class="leaf"></span>
+                        <span class="leaf"></span>
+                    </div>
+                    <h3>Naturalis</h3>
+                </div>
+                <div class="welcome-text">
+                    <h2>Welcome to<br>Your Sanctuary</h2>
+                    <p>Connect with nature, connect with yourself.</p>
+                </div>
+                <div class="testimonial">
+                    <p>"Nature is not a place to visit. It is home."</p>
+                    <span>— Gary Snyder</span>
+                </div>
+            </div>
+            <div class="login-right">
+                <h2>Sign in</h2>
+                <p>Welcome back! Please login to your account.</p>
+                
+                <form class="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <a href="#" class="forgot-link">Forgot password?</a>
+                    </div>
+                    
+                    <div class="remember-me">
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Stay signed in
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="login-button">Sign In</button>
+                    
+                    <div class="login-footer">
+                        <p>Don't have an account? <a href="#" class="signup-link">Create Account</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Falling leaves animation
+        const leavesContainer = document.getElementById('leavesContainer');
+        const totalLeaves = 35;
+        const leafTypes = ['🍃', '🍂', '🌿', '🍀', '☘️'];
+        
+        function createLeaves() {
+            for (let i = 0; i < totalLeaves; i++) {
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf-falling');
+                leaf.textContent = leafTypes[Math.floor(Math.random() * leafTypes.length)];
+                
+                // Randomize leaf properties
+                leaf.style.left = `${Math.random() * 100}vw`;
+                leaf.style.animationDuration = `${Math.random() * 10 + 15}s`;
+                leaf.style.animationDelay = `${Math.random() * 10}s`;
+                leaf.style.fontSize = `${Math.random() * 15 + 10}px`;
+                
+                leavesContainer.appendChild(leaf);
+            }
+        }
+        
+        createLeaves();
+    </script>
+</body>
+</html>
