@@ -19,6 +19,11 @@ This project features a variety of login page designs, each with its own unique 
 | 3 | Neon Cyberpunk | Futuristic cyberpunk design with neon effects and glitch animations (`day_3.html` + `style_day3.css`) |
 | 4 | Nature Theme | Calming organic design with natural elements and split-screen layout (`day_4.html` + `style_day4.css`) |
 | 5 | Glass Morphism | Elegant minimalist design with frosted glass effect and depth layers (`day_5.html` + `style_day5.css`) |
+| 6 | Dark Mode Minimalist | Clean, accessible dark interface with micro-interactions and progressive disclosure (`day_6.html` + `style_day6.css`) |
+| 7 | Neumorphism | Tactile interface with soft shadows and highlights creating a physical, intuitive feel (`day_7.html` + `style_day7.css`) |
+| 8 | Animated Geometric | Dynamic and playful design with morphing shapes and triadic color scheme (`day_8.html` + `style_day8.css`) |
+| 9 | Retro/Vintage | Nostalgic design with film grain effects, textures, and storytelling elements (`day_9.html` + `style_day9.css`) |
+| 10 | Adaptive/Responsive | Context-aware design that adapts to device orientation and user preferences (`day_10.html` + `style_day10.css`) |
 
 ## 🚀 Features
 
