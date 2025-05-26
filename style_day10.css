@@ -1,0 +1,832 @@
+/* Adaptive/Responsive Login Design - Day 10 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    /* Split complementary color scheme */
+    --primary-color: #5271ff;
+    --primary-dark: #3d57d6;
+    --accent-color: #ff7a5c;
+    --accent-dark: #e56a50;
+    --complementary-color: #4ecf9a;
+    
+    /* Other colors */
+    --text-light: #333333;
+    --text-dark: #f8f9fa;
+    --text-muted-light: #6c757d;
+    --text-muted-dark: #adb5bd;
+    
+    --bg-light: #ffffff;
+    --bg-dark: #121212;
+    --panel-light: #f8f9fa;
+    --panel-dark: #1e1e1e;
+    
+    --border-light: rgba(0, 0, 0, 0.1);
+    --border-dark: rgba(255, 255, 255, 0.1);
+    
+    --input-bg-light: #ffffff;
+    --input-bg-dark: #2c2c2c;
+    
+    --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
+    /* Default transition */
+    --transition: all 0.3s ease;
+}
+
+/* Default styles (light mode) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.5;
+    transition: var(--transition);
+    overflow-x: hidden;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+/* Page layout */
+.page-container {
+    min-height: 100vh;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background elements */
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.bg-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8;
+    filter: blur(50px);
+    transition: transform 0.7s ease-out;
+}
+
+.shape1 {
+    width: 500px;
+    height: 500px;
+    bottom: -250px;
+    right: -100px;
+    background: radial-gradient(circle at center, var(--primary-color), transparent 70%);
+}
+
+.shape2 {
+    width: 400px;
+    height: 400px;
+    top: -200px;
+    left: -200px;
+    background: radial-gradient(circle at center, var(--accent-color), transparent 70%);
+}
+
+.shape3 {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    left: 40%;
+    background: radial-gradient(circle at center, var(--complementary-color), transparent 70%);
+    opacity: 0.4;
+}
+
+.ambient-light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.3;
+    background: radial-gradient(circle at top right, rgba(255, 255, 255, 0.8), transparent 70%);
+    mix-blend-mode: overlay;
+    transition: opacity 0.5s ease;
+}
+
+body.dark-mode .ambient-light {
+    opacity: 0.15;
+    background: radial-gradient(circle at top right, rgba(120, 120, 150, 0.5), transparent 70%);
+    mix-blend-mode: color-dodge;
+}
+
+/* Main content layout */
+.content-container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 100vh;
+    transition: var(--transition);
+}
+
+/* Info panel */
+.info-panel {
+    flex: 1;
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.info-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.info-content p {
+    margin-bottom: 30px;
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+}
+
+.brand h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.features {
+    margin-bottom: 40px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.device-info {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px 20px;
+    margin-top: 30px;
+}
+
+.device-info span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.device-info span:last-child {
+    margin-bottom: 0;
+}
+
+.info-footer {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* Login panel */
+.login-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: var(--panel-light);
+    transition: var(--transition);
+}
+
+body.dark-mode .login-panel {
+    background-color: var(--panel-dark);
+}
+
+.login-wrapper {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+body.dark-mode h1 {
+    color: var(--text-dark);
+}
+
+.subtitle {
+    color: var(--text-muted-light);
+    margin-bottom: 30px;
+    transition: var(--transition);
+}
+
+body.dark-mode .subtitle {
+    color: var(--text-muted-dark);
+}
+
+.login-form {
+    margin-bottom: 30px;
+}
+
+/* Input styles */
+.input-group {
+    margin-bottom: 25px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+body.dark-mode .input-group label {
+    color: var(--text-dark);
+}
+
+.label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.forgot-link {
+    font-size: 0.85rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.forgot-link:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+body.dark-mode .forgot-link {
+    color: var(--primary-color);
+}
+
+body.dark-mode .forgot-link:hover {
+    color: var(--accent-color);
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted-light);
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+body.dark-mode .input-icon {
+    color: var(--text-muted-dark);
+}
+
+.input-container input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border-radius: 10px;
+    border: 1px solid var(--border-light);
+    background-color: var(--input-bg-light);
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-light);
+    transition: var(--transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.input-container input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.15);
+}
+
+body.dark-mode .input-container input {
+    border-color: var(--border-dark);
+    background-color: var(--input-bg-dark);
+    color: var(--text-dark);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .input-container input:focus {
+    box-shadow: 0 0 0 3px rgba(82, 113, 255, 0.3);
+}
+
+.input-container input::placeholder {
+    color: var(--text-muted-light);
+    opacity: 0.7;
+}
+
+body.dark-mode .input-container input::placeholder {
+    color: var(--text-muted-dark);
+    opacity: 0.7;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-muted-light);
+    padding: 5px;
+    transition: var(--transition);
+}
+
+.toggle-password:hover {
+    color: var(--primary-color);
+}
+
+body.dark-mode .toggle-password {
+    color: var(--text-muted-dark);
+}
+
+body.dark-mode .toggle-password:hover {
+    color: var(--primary-color);
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Checkbox styles */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.styled-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.styled-checkbox + label {
+    position: relative;
+    cursor: pointer;
+    padding-left: 30px;
+    font-size: 0.9rem;
+    user-select: none;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+body.dark-mode .styled-checkbox + label {
+    color: var(--text-dark);
+}
+
+.styled-checkbox + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border-light);
+    border-radius: 5px;
+    background-color: var(--input-bg-light);
+    transition: var(--transition);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+body.dark-mode .styled-checkbox + label:before {
+    border-color: var(--border-dark);
+    background-color: var(--input-bg-dark);
+}
+
+.styled-checkbox:checked + label:before {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.styled-checkbox:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    transition: var(--transition);
+}
+
+/* Button styles */
+.login-button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(82, 113, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.login-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(82, 113, 255, 0.4);
+}
+
+.login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(82, 113, 255, 0.4);
+}
+
+.login-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition);
+}
+
+.login-button:hover:before {
+    left: 100%;
+    transition: 0.7s;
+}
+
+/* Separator */
+.separator {
+    position: relative;
+    text-align: center;
+    margin: 25px 0;
+    font-size: 0.85rem;
+    color: var(--text-muted-light);
+    transition: var(--transition);
+}
+
+body.dark-mode .separator {
+    color: var(--text-muted-dark);
+}
+
+.separator:before,
+.separator:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: calc(50% - 70px);
+    height: 1px;
+    background-color: var(--border-light);
+    transition: var(--transition);
+}
+
+body.dark-mode .separator:before,
+body.dark-mode .separator:after {
+    background-color: var(--border-dark);
+}
+
+.separator:before {
+    left: 0;
+}
+
+.separator:after {
+    right: 0;
+}
+
+/* Social login */
+.social-login {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 15px;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    background-color: var(--input-bg-light);
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-light);
+}
+
+body.dark-mode .social-btn {
+    border-color: var(--border-dark);
+    background-color: var(--input-bg-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .social-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-dark);
+}
+
+/* Sign up link */
+.signup-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--text-muted-light);
+    transition: var(--transition);
+}
+
+body.dark-mode .signup-link {
+    color: var(--text-muted-dark);
+}
+
+.signup-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.signup-link a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}
+
+body.dark-mode .signup-link a:hover {
+    color: var(--accent-color);
+}
+
+/* Accessibility controls */
+.accessibility-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.accessibility-controls button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--border-light);
+    background-color: var(--input-bg-light);
+    color: var(--text-light);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.accessibility-controls button:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+body.dark-mode .accessibility-controls button {
+    border-color: var(--border-dark);
+    background-color: var(--input-bg-dark);
+    color: var(--text-dark);
+}
+
+body.dark-mode .accessibility-controls button:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.accessibility-controls button svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Theme toggle specifics */
+.theme-toggle .sun-icon,
+body.dark-mode .theme-toggle .moon-icon {
+    display: none;
+}
+
+.theme-toggle .moon-icon,
+body.dark-mode .theme-toggle .sun-icon {
+    display: block;
+}
+
+/* Large text mode */
+body.large-text {
+    font-size: 18px;
+}
+
+body.large-text h1 {
+    font-size: 2.8rem;
+}
+
+body.large-text .input-container input {
+    font-size: 1.1rem;
+    padding-top: 17px;
+    padding-bottom: 17px;
+}
+
+/* High contrast mode */
+body.high-contrast {
+    --primary-color: #0056b3;
+    --primary-dark: #003d82;
+    --accent-color: #d10000;
+    --accent-dark: #9c0000;
+    --text-light: #000000;
+    --text-dark: #ffffff;
+    --text-muted-light: #333333;
+    --text-muted-dark: #eeeeee;
+    --border-light: rgba(0, 0, 0, 0.5);
+    --border-dark: rgba(255, 255, 255, 0.5);
+}
+
+body.high-contrast.dark-mode {
+    --bg-dark: #000000;
+    --panel-dark: #121212;
+    --input-bg-dark: #1a1a1a;
+}
+
+body.high-contrast:not(.dark-mode) {
+    --bg-light: #ffffff;
+    --panel-light: #f0f0f0;
+    --input-bg-light: #ffffff;
+}
+
+/* Responsive layouts */
+/* Portrait orientation (default) */
+body.portrait .content-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+}
+
+body.portrait .info-panel {
+    display: none;
+}
+
+body.portrait .login-panel {
+    padding: 30px 20px;
+    flex: none;
+    min-height: 100vh;
+}
+
+/* Landscape orientation on larger screens */
+body.landscape:not(.size-small) .content-container {
+    flex-direction: row;
+}
+
+body.landscape:not(.size-small) .info-panel {
+    display: flex;
+}
+
+/* Small screens */
+body.size-small .info-panel {
+    display: none;
+}
+
+body.size-small .login-panel {
+    padding: 20px;
+}
+
+body.size-small .login-wrapper {
+    max-width: 100%;
+}
+
+body.size-small h1 {
+    font-size: 2rem;
+}
+
+body.size-small .social-btn span {
+    display: none;
+}
+
+body.size-small .social-btn {
+    flex: none;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+}
+
+body.size-small .social-login {
+    justify-content: center;
+}
+
+/* Medium screens */
+body.size-medium:not(.landscape) .info-panel {
+    display: none;
+}
+
+@media (min-width: 992px) {
+    /* Large screens */
+    body.landscape .shape1 {
+        width: 600px;
+        height: 600px;
+    }
+    
+    body.landscape .shape2 {
+        width: 500px;
+        height: 500px;
+    }
+    
+    body.landscape .info-content h2 {
+        font-size: 3rem;
+    }
+}
+
+/* Larger screens */
+@media (min-width: 1400px) {
+    .login-wrapper {
+        max-width: 500px;
+    }
+}
+
+/* For users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .login-button:before {
+        display: none;
+    }
+}
+
+body.reduced-motion * {
+    transition: none !important;
+    animation: none !important;
+}

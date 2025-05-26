@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Adaptive/Responsive Design</title>
+    <link rel="stylesheet" href="style_day10.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <div class="background-container">
+            <div class="bg-shape shape1"></div>
+            <div class="bg-shape shape2"></div>
+            <div class="bg-shape shape3"></div>
+            <div class="ambient-light"></div>
+        </div>
+        
+        <div class="content-container">
+            <div class="info-panel">
+                <div class="brand">
+                    <div class="logo">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 5L33.66 30H6.34L20 5Z" fill="var(--primary-color)" />
+                            <circle cx="20" cy="20" r="7" fill="var(--accent-color)" />
+                        </svg>
+                    </div>
+                    <h3>AdaptFlow</h3>
+                </div>
+                
+                <div class="info-content">
+                    <h2>Welcome to the adaptive experience</h2>
+                    <p>This login interface transforms based on device orientation, screen size, and user preferences.</p>
+                    <div class="features">
+                        <div class="feature">
+                            <span class="feature-icon">📱</span>
+                            <span>Device-aware design</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🌓</span>
+                            <span>Adapts to system theme</span>
+                        </div>
+                        <div class="feature">
+                            <span class="feature-icon">🔄</span>
+                            <span>Orientation responsive</span>
+                        </div>
+                    </div>
+                    <div class="device-info">
+                        <span id="orientation-display">Current orientation: Portrait</span>
+                        <span id="theme-display">Current theme: Light</span>
+                        <span id="size-display">Screen category: Medium</span>
+                    </div>
+                </div>
+                
+                <div class="info-footer">
+                    <p>&copy; 2025 AdaptFlow. All rights reserved.</p>
+                </div>
+            </div>
+            
+            <div class="login-panel">
+                <div class="login-wrapper">
+                    <h1>Sign in</h1>
+                    <p class="subtitle">Access your account</p>
+                    
+                    <form class="login-form">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <div class="input-container">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z" fill="currentColor"/>
+                                </svg>
+                                <input type="email" id="email" placeholder="name@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <div class="label-row">
+                                <label for="password">Password</label>
+                                <a href="#" class="forgot-link">Forgot password?</a>
+                            </div>
+                            <div class="input-container">
+                                <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9C13.71 2.9 15.1 4.29 15.1 6V8Z" fill="currentColor"/>
+                                </svg>
+                                <input type="password" id="password" placeholder="Enter password" required>
+                                <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                                    <svg class="eye-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="remember" class="styled-checkbox">
+                            <label for="remember">Remember me for 30 days</label>
+                        </div>
+                        
+                        <button type="submit" class="login-button">
+                            <span>Sign in</span>
+                        </button>
+                        
+                        <div class="separator">
+                            <span>or continue with</span>
+                        </div>
+                        
+                        <div class="social-login">
+                            <button type="button" class="social-btn google">
+                                <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                                </svg>
+                                <span>Google</span>
+                            </button>
+                            <button type="button" class="social-btn apple">
+                                <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.5646 12.3773C17.5495 10.3111 19.265 9.33102 19.3561 9.27784C18.1432 7.51045 16.2412 7.2602 15.5893 7.24365C13.9693 7.07432 12.4099 8.22684 11.5894 8.22684C10.7517 8.22684 9.46332 7.2602 8.09466 7.29329C6.32727 7.32638 4.69068 8.37229 3.81989 10.0254C2.02586 13.3809 3.38798 18.2334 5.10883 21.0229C5.97308 22.386 6.98909 23.9289 8.34469 23.8712C9.66691 23.8081 10.1789 23.0311 11.7526 23.0311C13.3098 23.0311 13.7889 23.8712 15.1776 23.8372C16.6156 23.8081 17.4864 22.4359 18.3242 21.0674C19.3231 19.5082 19.7363 17.9818 19.7528 17.9132C19.7198 17.9022 17.5826 17.0534 17.5646 14.9542C17.5495 13.1877 19.2319 12.1833 19.3065 12.1162C18.1377 10.4073 16.3712 10.2435 15.8436 10.2105C14.2644 10.1143 12.8758 11.1407 12.1594 11.1407C11.4265 11.1407 10.2741 10.2765 8.95187 10.2765C8.95187 10.2765 8.95187 10.2765 8.95187 10.2765ZM14.813 5.3C15.5124 4.44227 15.9752 3.27321 15.8436 2.08765C14.8447 2.12725 13.5939 2.77043 12.8648 3.61161C12.2221 4.35337 11.6619 5.56557 11.8102 6.71116C12.9296 6.79098 14.0931 6.15472 14.813 5.3Z" fill="currentColor"/>
+                                </svg>
+                                <span>Apple</span>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="signup-link">
+                        Don't have an account? <a href="#">Sign up</a>
+                    </div>
+                    
+                    <div class="accessibility-controls">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                            <svg class="moon-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 3C7.03 3 3 7.03 3 12C3 16.97 7.03 21 12 21C16.97 21 21 16.97 21 12C21 7.03 16.97 3 12 3ZM12 19C8.13 19 5 15.87 5 12C5 8.13 8.13 5 12 5C15.87 5 19 8.13 19 12C19 15.87 15.87 19 12 19Z" fill="currentColor"/>
+                                <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7V17Z" fill="currentColor"/>
+                            </svg>
+                            <svg class="sun-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17Z" fill="currentColor"/>
+                                <path d="M12 1V3M12 21V23M1 12H3M21 12H23M4.22 4.22L5.64 5.64M18.36 18.36L19.78 19.78M18.36 5.64L19.78 4.22M4.22 19.78L5.64 18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        
+                        <button id="font-size-toggle" class="font-size-toggle" aria-label="Toggle font size">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 7H5V17H7V13H9V11H7V9H9V7Z" fill="currentColor"/>
+                                <path d="M19 7H13V9H15V17H17V9H19V7Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                        
+                        <button id="high-contrast-toggle" class="high-contrast-toggle" aria-label="Toggle high contrast">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12 20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4C16.42 4 20 7.58 20 12C20 16.42 16.42 20 12 20Z" fill="currentColor"/>
+                                <path d="M12 4V20C7.58 20 4 16.42 4 12C4 7.58 7.58 4 12 4Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // System dark mode detection
+            const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            const body = document.body;
+            
+            // Initial setup based on system preferences
+            if (prefersDarkMode.matches) {
+                body.classList.add('dark-mode');
+                document.getElementById('theme-display').textContent = 'Current theme: Dark';
+            }
+            
+            if (prefersReducedMotion.matches) {
+                body.classList.add('reduced-motion');
+            }
+            
+            // Orientation detection
+            function updateOrientation() {
+                const orientation = window.innerWidth > window.innerHeight ? 'Landscape' : 'Portrait';
+                document.getElementById('orientation-display').textContent = `Current orientation: ${orientation}`;
+                body.classList.toggle('landscape', orientation === 'Landscape');
+                body.classList.toggle('portrait', orientation === 'Portrait');
+            }
+            
+            // Screen size detection
+            function updateScreenSize() {
+                let sizeCategory;
+                const width = window.innerWidth;
+                
+                if (width < 576) {
+                    sizeCategory = 'Small';
+                } else if (width < 992) {
+                    sizeCategory = 'Medium';
+                } else {
+                    sizeCategory = 'Large';
+                }
+                
+                document.getElementById('size-display').textContent = `Screen category: ${sizeCategory}`;
+                
+                // Update body classes for CSS targeting
+                body.classList.remove('size-small', 'size-medium', 'size-large');
+                body.classList.add(`size-${sizeCategory.toLowerCase()}`);
+            }
+            
+            // Theme toggle
+            document.getElementById('theme-toggle').addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                const isDark = body.classList.contains('dark-mode');
+                document.getElementById('theme-display').textContent = `Current theme: ${isDark ? 'Dark' : 'Light'}`;
+            });
+            
+            // Font size toggle
+            document.getElementById('font-size-toggle').addEventListener('click', function() {
+                body.classList.toggle('large-text');
+            });
+            
+            // High contrast toggle
+            document.getElementById('high-contrast-toggle').addEventListener('click', function() {
+                body.classList.toggle('high-contrast');
+            });
+            
+            // Password visibility toggle
+            document.querySelector('.toggle-password').addEventListener('click', function() {
+                const passwordInput = document.getElementById('password');
+                passwordInput.type = passwordInput.type === 'password' ? 'text' : 'password';
+            });
+            
+            // Listen for orientation changes
+            window.addEventListener('resize', function() {
+                updateOrientation();
+                updateScreenSize();
+            });
+            
+            // Device motion detection for parallax effect (if supported)
+            if (window.DeviceOrientationEvent && !prefersReducedMotion.matches) {
+                window.addEventListener('deviceorientation', function(event) {
+                    if (event.beta === null || event.gamma === null) return;
+                    
+                    const moveX = event.gamma / 10; // Left/right tilt
+                    const moveY = event.beta / 10;  // Front/back tilt
+                    
+                    // Apply subtle parallax effect to background shapes
+                    document.querySelectorAll('.bg-shape').forEach(shape => {
+                        const speed = parseFloat(shape.getAttribute('data-speed') || 1);
+                        shape.style.transform = `translate(${moveX * speed}px, ${moveY * speed}px)`;
+                    });
+                });
+            }
+            
+            // Set initial states
+            updateOrientation();
+            updateScreenSize();
+            
+            // Add speed attributes to shapes for parallax
+            document.querySelector('.shape1').setAttribute('data-speed', '2');
+            document.querySelector('.shape2').setAttribute('data-speed', '1.5');
+            document.querySelector('.shape3').setAttribute('data-speed', '1');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Retro/Vintage Design</title>
+    <link rel="stylesheet" href="style_day9.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Playfair+Display:wght@400;700&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="vignette-overlay"></div>
+    
+    <div class="container">
+        <div class="login-card">
+            <div class="card-border"></div>
+            
+            <div class="brand">
+                <div class="logo">
+                    <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="16" fill="#35312e" stroke="#8b6d47" stroke-width="2"/>
+                        <text x="18" y="23" font-family="serif" font-size="18" fill="#8b6d47" text-anchor="middle">R</text>
+                    </svg>
+                </div>
+                <h3>RetroVault</h3>
+            </div>
+            
+            <div class="stamp-container">
+                <div class="stamp">Established 1986</div>
+            </div>
+            
+            <h1>Account Access</h1>
+            <p class="subtitle">Please verify your credentials</p>
+            
+            <form class="login-form">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <div class="input-container">
+                        <input type="text" id="username" placeholder="Enter username" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-container">
+                        <input type="password" id="password" placeholder="Enter password" required>
+                    </div>
+                </div>
+                
+                <div class="options-row">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="remember" class="styled-checkbox">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="login-button">
+                    <span>Sign In</span>
+                </button>
+                
+                <div class="separator">
+                    <div class="line"></div>
+                    <span>or continue with</span>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="social-btn">
+                        <span>G</span>
+                    </button>
+                    <button type="button" class="social-btn">
+                        <span>f</span>
+                    </button>
+                    <button type="button" class="social-btn">
+                        <span>in</span>
+                    </button>
+                </div>
+            </form>
+            
+            <div class="signup-link">
+                <p>Need an account? <a href="#">Register</a></p>
+                <div class="vintage-ornament">※</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="retro-elements">
+        <div class="retro-element element-1"></div>
+        <div class="retro-element element-2"></div>
+        <div class="retro-element element-3"></div>
+    </div>
+
+    <script>
+        // Add vintage distortion effect - subtle movement for retro "film" feel
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginCard = document.querySelector('.login-card');
+            
+            // Add subtle shake to mimic vintage film movement
+            function addVintageShake() {
+                const intensity = 0.15; // Low intensity shake
+                const randomX = (Math.random() - 0.5) * intensity;
+                const randomY = (Math.random() - 0.5) * intensity;
+                
+                loginCard.style.transform = `translate(${randomX}px, ${randomY}px)`;
+                setTimeout(addVintageShake, 100);
+            }
+            
+            addVintageShake();
+            
+            // Toggle password visibility when clicking on password field
+            document.getElementById('password').addEventListener('dblclick', function() {
+                if (this.type === 'password') {
+                    this.type = 'text';
+                    setTimeout(() => {
+                        this.type = 'password';
+                    }, 1000); // Show password for 1 second
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Neumorphism Design</title>
+    <link rel="stylesheet" href="style_day7.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="login-card">
+            <div class="brand">
+                <div class="logo">
+                    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="18" cy="18" r="14" stroke="#5b5e71" stroke-width="2"/>
+                        <circle cx="18" cy="18" r="7" fill="#5b5e71"/>
+                    </svg>
+                </div>
+                <h3>SoftFlow</h3>
+            </div>
+            
+            <h1>Welcome</h1>
+            <p class="subtitle">Please sign in to continue</p>
+            
+            <form class="login-form">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="neu-input">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z" fill="#5b5e71"/>
+                        </svg>
+                        <input type="email" id="email" placeholder="name@example.com" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="neu-input">
+                        <svg class="input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 8H17V6C17 3.24 14.76 1 12 1C9.24 1 7 3.24 7 6V8H6C4.9 8 4 8.9 4 10V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V10C20 8.9 19.1 8 18 8ZM12 17C10.9 17 10 16.1 10 15C10 13.9 10.9 13 12 13C13.1 13 14 13.9 14 15C14 16.1 13.1 17 12 17ZM15.1 8H8.9V6C8.9 4.29 10.29 2.9 12 2.9C13.71 2.9 15.1 4.29 15.1 6V8Z" fill="#5b5e71"/>
+                        </svg>
+                        <input type="password" id="password" placeholder="Enter password" required>
+                    </div>
+                </div>
+                
+                <div class="options-row">
+                    <div class="checkbox-container">
+                        <div class="neu-checkbox">
+                            <input type="checkbox" id="remember">
+                            <span class="checkmark"></span>
+                        </div>
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                
+                <button type="submit" class="neu-button login-btn">
+                    <span>Sign In</span>
+                </button>
+                
+                <div class="divider">
+                    <span>or continue with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button class="neu-button social-btn google">
+                        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.24 10.285V14.4h6.806c-.275 1.765-2.056 5.174-6.806 5.174-4.095 0-7.439-3.389-7.439-7.574s3.345-7.574 7.439-7.574c2.33 0 3.891.989 4.785 1.849l3.254-3.138C18.189 1.186 15.479 0 12.24 0c-6.635 0-12 5.365-12 12s5.365 12 12 12c6.926 0 11.52-4.869 11.52-11.726 0-.788-.085-1.39-.189-1.989H12.24z" fill="#5b5e71"/>
+                        </svg>
+                    </button>
+                    <button class="neu-button social-btn apple">
+                        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.05 20.28c-.98.95-2.05.88-3.08.62-1.06-.27-2.03-.28-3.11 0-1.38.38-2.25.11-3.1-.62C4.4 17.16 4.65 12.02 7.97 11.7c1.01-.06 1.72.26 2.33.52.61.26 1.09.52 2.02.52.89 0 1.35-.26 2.04-.52.63-.25 1.33-.59 2.31-.5 1.05.07 1.88.42 2.5 1.2-1.2.76-1.85 1.83-1.83 3.23.03 1.22.57 2.34 1.71 3.13zM15.31 6.22c.83-1.05 1.12-2.58.85-4.22-1.42.18-2.58.93-3.31 1.98-.66.94-.87 2.15-.76 3.29 1.38.03 2.6-.59 3.22-1.05z" fill="#5b5e71"/>
+                        </svg>
+                    </button>
+                    <button class="neu-button social-btn facebook">
+                        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.9981 11.9991C23.9981 5.37216 18.626 0 11.9991 0C5.37216 0 0 5.37216 0 11.9991C0 17.9882 4.38789 22.9522 10.1242 23.8524V15.4676H7.07758V11.9991H10.1242V9.35553C10.1242 6.34826 11.9156 4.68714 14.6564 4.68714C15.9692 4.68714 17.3424 4.92149 17.3424 4.92149V7.87439H15.8294C14.3388 7.87439 13.8739 8.79933 13.8739 9.74824V11.9991H17.2018L16.6698 15.4676H13.8739V23.8524C19.6103 22.9522 23.9981 17.9882 23.9981 11.9991Z" fill="#5b5e71"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            
+            <div class="register-link">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add pressed effect to buttons
+            const buttons = document.querySelectorAll('.neu-button');
+            buttons.forEach(button => {
+                button.addEventListener('mousedown', () => {
+                    button.classList.add('pressed');
+                });
+                button.addEventListener('mouseup', () => {
+                    button.classList.remove('pressed');
+                    button.classList.add('released');
+                    setTimeout(() => {
+                        button.classList.remove('released');
+                    }, 300);
+                });
+                button.addEventListener('mouseleave', () => {
+                    button.classList.remove('pressed');
+                });
+                
+                // Touch support
+                if (typeof Hammer !== 'undefined') {
+                    const hammer = new Hammer(button);
+                    hammer.on('tap', () => {
+                        button.classList.add('pressed');
+                        setTimeout(() => {
+                            button.classList.remove('pressed');
+                            button.classList.add('released');
+                            setTimeout(() => {
+                                button.classList.remove('released');
+                            }, 300);
+                        }, 200);
+                    });
+                }
+            });
+            
+            // Checkbox animation
+            const checkbox = document.querySelector('#remember');
+            const checkboxContainer = document.querySelector('.neu-checkbox');
+            
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    checkboxContainer.classList.add('checked');
+                } else {
+                    checkboxContainer.classList.remove('checked');
+                }
+            });
+            
+            // Focus effects for inputs
+            const inputs = document.querySelectorAll('.neu-input input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', () => {
+                    input.parentElement.classList.add('focused');
+                });
+                input.addEventListener('blur', () => {
+                    input.parentElement.classList.remove('focused');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

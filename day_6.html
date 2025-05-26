@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Particle Network</title>
+    <link rel="stylesheet" href="style_day6.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <div class="page-container">
+        <div class="login-container">
+            <div class="brand">
+                <div class="brand-logo">
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2" />
+                        <circle cx="16" cy="16" r="6" fill="currentColor" />
+                    </svg>
+                </div>
+                <h3>Connectify</h3>
+            </div>
+            
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Log in to your account to continue</p>
+            
+            <div class="tab-container">
+                <button class="tab-btn active" data-target="email">Email</button>
+                <button class="tab-btn" data-target="phone">Phone</button>
+                <div class="tab-indicator"></div>
+            </div>
+            
+            <form class="login-form">
+                <div class="tab-content active" id="email-tab">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required autocomplete="off" placeholder="name@company.com">
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="phone-tab">
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" autocomplete="off" placeholder="(123) 456-7890">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="password-header">
+                        <label for="password">Password</label>
+                        <a href="#" class="forgot-link">Forgot?</a>
+                    </div>
+                    <div class="password-container">
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                        <button type="button" class="toggle-password" aria-label="Show password">
+                            <svg class="eye-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 5C8.24 5 5.01 7.21 3 10.7C5.01 14.19 8.24 16.4 12 16.4C15.76 16.4 18.99 14.19 21 10.7C18.99 7.21 15.76 5 12 5ZM12 14.7C9.97 14.7 8.33 12.89 8.33 10.7C8.33 8.51 9.97 6.7 12 6.7C14.03 6.7 15.67 8.51 15.67 10.7C15.67 12.89 14.03 14.7 12 14.7ZM12 8.2C10.73 8.2 9.7 9.35 9.7 10.7C9.7 12.05 10.73 13.2 12 13.2C13.27 13.2 14.3 12.05 14.3 10.7C14.3 9.35 13.27 8.2 12 8.2Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox">
+                        <input type="checkbox" id="remember" name="remember" checked>
+                        <span class="checkbox-mark"></span>
+                        <span>Remember me</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="login-button">Log In</button>
+                
+                <div class="divider">or</div>
+                
+                <div class="social-login">
+                    <button type="button" class="social-btn google">
+                        <svg width="18" height="18" viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.874 2.684-6.615z" fill="#4285F4"/>
+                            <path d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z" fill="#34A853"/>
+                            <path d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z" fill="#FBBC05"/>
+                            <path d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z" fill="#EA4335"/>
+                        </svg>
+                        <span>Continue with Google</span>
+                    </button>
+                    
+                    <button type="button" class="social-btn apple">
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.5 0C11.3 0.1 9.9 0.9 9.2 1.9C8.5 2.8 8 4.1 8.2 5.4C9.5 5.5 10.8 4.7 11.5 3.7C12.2 2.7 12.7 1.5 12.5 0Z"/>
+                            <path d="M16.7 13.3C17.1 12.6 17.3 12.2 17.6 11.5C14.9 10.3 14.7 5.9 17.4 4.1C16.1 2.4 14.2 2 13.2 2C10.8 2 9.9 3.2 8.5 3.2C7 3.2 5.6 2 3.7 2C1.9 2 0 3.4 0 6.1C0 7.6 0.5 9.3 1.1 10.5C1.9 12.2 4.3 15.5 5.8 15.5C7.2 15.5 7.7 14.6 9.4 14.5C11.2 14.5 11.6 15.5 13 15.5C14.4 15.4 16.7 12.3 17.6 10.7"/>
+                        </svg>
+                        <span>Continue with Apple</span>
+                    </button>
+                </div>
+                
+                <div class="signup-link">
+                    Don't have an account? <a href="#">Sign up</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Particle network animation
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let particles = [];
+        
+        // Mouse position
+        let mouseX = 0;
+        let mouseY = 0;
+        let mouseRadius = 100;
+        
+        // Configuration
+        const particleCount = 70;
+        const colors = ['#4D6DE3', '#6D56E3', '#D345E2'];
+        const maxDistance = 170;
+        const minDistance = 100;
+        
+        // Resize canvas
+        function setupCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            createParticles();
+        }
+        
+        // Create particles
+        function createParticles() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                const particle = {
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.8,
+                    vy: (Math.random() - 0.5) * 0.8,
+                    radius: Math.random() * 2 + 1,
+                    color: colors[Math.floor(Math.random() * colors.length)]
+                };
+                particles.push(particle);
+            }
+        }
+        
+        // Draw particles and connections
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            
+            // Draw connections
+            for (let i = 0; i < particles.length; i++) {
+                const p1 = particles[i];
+                
+                // Mouse interaction
+                const dx = mouseX - p1.x;
+                const dy = mouseY - p1.y;
+                const mouseDistance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (mouseDistance < mouseRadius) {
+                    const force = (mouseRadius - mouseDistance) / mouseRadius;
+                    const angle = Math.atan2(dy, dx);
+                    p1.vx -= force * Math.cos(angle) * 0.6;
+                    p1.vy -= force * Math.sin(angle) * 0.6;
+                }
+                
+                // Update position
+                p1.x += p1.vx;
+                p1.y += p1.vy;
+                
+                // Bounce on edges
+                if (p1.x < 0 || p1.x > width) p1.vx = -p1.vx;
+                if (p1.y < 0 || p1.y > height) p1.vy = -p1.vy;
+                
+                // Draw connections to other particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < maxDistance) {
+                        const opacity = distance < minDistance ? 0.8 : (maxDistance - distance) / (maxDistance - minDistance) * 0.5;
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(125, 125, 245, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+                
+                // Draw particle
+                ctx.beginPath();
+                ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
+                ctx.fillStyle = p1.color;
+                ctx.fill();
+            }
+            
+            requestAnimationFrame(draw);
+        }
+        
+        // Initialize
+        window.addEventListener('resize', setupCanvas);
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+        
+        setupCanvas();
+        draw();
+        
+        // Tab switching
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const tabIndicator = document.querySelector('.tab-indicator');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update tab buttons
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Move indicator
+                const btnIndex = Array.from(tabBtns).indexOf(btn);
+                tabIndicator.style.transform = `translateX(${btnIndex * 100}%)`;
+                
+                // Show content
+                const targetId = btn.dataset.target + '-tab';
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === targetId) {
+                        content.classList.add('active');
+                    }
+                });
+            });
+        });
+        
+        // Password toggle
+        const togglePasswordBtn = document.querySelector('.toggle-password');
+        const passwordInput = document.getElementById('password');
+        
+        togglePasswordBtn.addEventListener('click', () => {
+            const type = passwordInput.type === 'password' ? 'text' : 'password';
+            passwordInput.type = type;
+            togglePasswordBtn.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
