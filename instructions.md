@@ -1,5 +1,3 @@
-I want to add unique and beautiful looking background for login pages for 100 days. I wil be sharing them via my youtube channel.
-
-Let's find alternative ways for the UI/UX of login page. Compare/contrast tee pros and cons of each UI/UX Login page. With different combinitions of color palette.
-
-let's work this out step by step to be sure we have right answer.
+Let's start working on day 15,
+Great Job so far! You have completed the first 14 days of HTML and CSS. Now, let's take it a step further. By the end of this challenge, you will have created 100 unique and beautiful login pages, each with its own distinct background and UI/UX design.
+I want to add unique and beautiful looking background for login pages for 100 days. I wil be sharing them via my youtube channel. Let's find alternative ways for the UI/UX of login page. Compare/contrast tee pros and cons of each UI/UX Login page. With different combinitions of color palette. let's work this out step by step to be sure we have right answer for the best UI/UX design for login page day by day. Let's start for the next 15th day of HTML and CSS.

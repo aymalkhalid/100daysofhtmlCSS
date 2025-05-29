@@ -1,0 +1,676 @@
+/* Cricket Theme Login Design - Day 11 */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Cricket Colors */
+    --cricket-green: #1da64a;
+    --cricket-gold: #ffd700;
+    --cricket-dark: #0a3b1c;
+    --cricket-light: #e9f5ec;
+    
+    /* Team Colors */
+    --india-blue: #0033A0;
+    --england-red: #CE1126;
+    --australia-yellow: #00843D;
+    --newzealand-black: #000000;
+    --pakistan-green: #28A745;
+    --westindies-maroon: #800000;
+    
+    /* Common colors */
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --text-muted: #6c757d;
+    
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    
+    --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    
+    /* Transitions */
+    --transition-fast: all 0.2s ease;
+    --transition-normal: all 0.3s ease;
+    --transition-slow: all 0.6s ease;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--cricket-green);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    transition: var(--transition-normal);
+}
+
+/* Team-specific themes */
+body[data-team="india"] {
+    --team-primary: var(--india-blue);
+    --team-secondary: #FF9933;
+    background: linear-gradient(135deg, var(--team-primary) 0%, #001f60 100%);
+}
+
+body[data-team="england"] {
+    --team-primary: var(--england-red);
+    --team-secondary: #00247D;
+    background: linear-gradient(135deg, var(--team-primary) 0%, #8C0015 100%);
+}
+
+body[data-team="australia"] {
+    --team-primary: var(--australia-yellow);
+    --team-secondary: #FFCD00;
+    background: linear-gradient(135deg, var(--team-primary) 0%, #005C29 100%);
+}
+
+body[data-team="newzealand"] {
+    --team-primary: var(--newzealand-black);
+    --team-secondary: #FFFFFF;
+    background: linear-gradient(135deg, var(--team-primary) 0%, #333333 100%);
+}
+
+body[data-team="pakistan"] {
+    --team-primary: var(--pakistan-green);
+    --team-secondary: #FFFFFF;
+    background: linear-gradient(135deg, var(--team-primary) 0%, #195D32 100%);
+}
+
+body[data-team="westindies"] {
+    --team-primary: var(--westindies-maroon);
+    --team-secondary: #FFD700;
+    background: linear-gradient(135deg, var(--team-primary) 0%, #5C0000 100%);
+}
+
+/* Stadium Background Elements */
+.stadium-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.field {
+    position: absolute;
+    bottom: -20%;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: radial-gradient(ellipse at center, #26b54b 0%, #1a833a 100%);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    transform: scale(1.5);
+    box-shadow: inset 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.stadium-lights {
+    position: absolute;
+    width: 30px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 80px 40px rgba(255, 255, 255, 0.3);
+}
+
+.left-lights {
+    top: 10%;
+    left: 15%;
+    transform: rotate(-30deg);
+}
+
+.right-lights {
+    top: 10%;
+    right: 15%;
+    transform: rotate(30deg);
+}
+
+.crowd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-image: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.4) 70%),
+                     repeating-linear-gradient(0deg, 
+                         rgba(255,255,255,0.1) 0px, 
+                         rgba(255,255,255,0.1) 2px, 
+                         transparent 2px, 
+                         transparent 5px);
+    opacity: 0.4;
+}
+
+/* Cricket Elements */
+.cricket-ball {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #bb0000, #880000);
+    box-shadow: inset 2px -2px 10px rgba(255, 255, 255, 0.3),
+                inset -2px 2px 10px rgba(0, 0, 0, 0.4),
+                0 0 10px rgba(0, 0, 0, 0.3);
+    top: 25%;
+    right: 10%;
+    z-index: 1;
+    transition: var(--transition-normal);
+}
+
+.cricket-ball::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 5px;
+}
+
+.cricket-ball.spin {
+    animation: spin 1s linear infinite, float 3s ease-in-out infinite;
+}
+
+.cricket-bat {
+    position: absolute;
+    width: 20px;
+    height: 180px;
+    background: linear-gradient(90deg, #8B4513, #A0522D, #8B4513);
+    border-radius: 5px;
+    top: 40%;
+    left: 8%;
+    transform: rotate(30deg);
+    transform-origin: bottom center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.cricket-bat::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    background: linear-gradient(90deg, #8B4513, #A0522D, #8B4513);
+    border-radius: 5px;
+}
+
+/* Confetti Container */
+.confetti-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.confetti {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    opacity: 0.7;
+    animation: fall 5s linear forwards;
+}
+
+/* Main Content */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 480px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    transform: translateY(0);
+    transition: var(--transition-normal);
+    animation: cardFadeIn 0.5s ease-out forwards;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg), 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Header */
+.card-header {
+    padding: 25px;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--cricket-green), var(--cricket-dark));
+    color: var(--text-light);
+    position: relative;
+}
+
+.cricket-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    background: white;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cricket-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.card-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.card-header p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Team Selection */
+.team-selector {
+    padding: 20px;
+    text-align: center;
+    background: #f5f5f5;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.team-selector p {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-dark);
+}
+
+.teams {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.team {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    border: 2px solid transparent;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+}
+
+.team:hover {
+    transform: scale(1.1);
+}
+
+.team.active {
+    transform: scale(1.2);
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--cricket-gold), var(--shadow-md);
+}
+
+.team-india {
+    background: var(--india-blue);
+}
+
+.team-england {
+    background: var(--england-red);
+}
+
+.team-australia {
+    background: var(--australia-yellow);
+}
+
+.team-newzealand {
+    background: var(--newzealand-black);
+}
+
+.team-pakistan {
+    background: var(--pakistan-green);
+}
+
+.team-westindies {
+    background: var(--westindies-maroon);
+}
+
+/* Login Form */
+.login-form {
+    padding: 25px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: var(--transition-fast);
+    color: var(--text-dark);
+}
+
+.input-wrapper input:focus {
+    border-color: var(--cricket-green);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(29, 166, 74, 0.2);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Options Row */
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.styled-checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--cricket-green);
+}
+
+.remember-me label {
+    font-size: 13px;
+    color: var(--text-dark);
+    cursor: pointer;
+}
+
+.forgot-password {
+    font-size: 13px;
+    color: var(--cricket-green);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background: var(--cricket-green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition-fast);
+}
+
+.login-button:hover {
+    background: #189a40;
+    box-shadow: 0 5px 15px rgba(29, 166, 74, 0.4);
+    transform: translateY(-2px);
+}
+
+.login-button:hover::before {
+    left: 100%;
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.cricket-icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* Separator */
+.separator {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ddd;
+}
+
+.separator span {
+    padding: 0 15px;
+}
+
+/* Social Login */
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Signup Link */
+.signup-link {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-dark);
+}
+
+.signup-link a {
+    color: var(--cricket-green);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Animations */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes cardFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .login-card {
+        max-width: 100%;
+    }
+    
+    .card-header h1 {
+        font-size: 24px;
+    }
+    
+    .cricket-ball {
+        width: 40px;
+        height: 40px;
+        right: 5%;
+    }
+    
+    .cricket-bat {
+        height: 150px;
+        left: 5%;
+    }
+}
+
+/* Team-specific button styles */
+body[data-team="india"] .login-button {
+    background: var(--india-blue);
+}
+
+body[data-team="india"] .login-button:hover {
+    background: #002580;
+    box-shadow: 0 5px 15px rgba(0, 51, 160, 0.4);
+}
+
+body[data-team="england"] .login-button {
+    background: var(--england-red);
+}
+
+body[data-team="england"] .login-button:hover {
+    background: #A80F1F;
+    box-shadow: 0 5px 15px rgba(206, 17, 38, 0.4);
+}
+
+body[data-team="australia"] .login-button {
+    background: var(--australia-yellow);
+}
+
+body[data-team="australia"] .login-button:hover {
+    background: #006e3c;
+    box-shadow: 0 5px 15px rgba(0, 132, 61, 0.4);
+}
+
+body[data-team="newzealand"] .login-button {
+    background: var(--newzealand-black);
+}
+
+body[data-team="newzealand"] .login-button:hover {
+    background: #222222;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+body[data-team="pakistan"] .login-button {
+    background: var(--pakistan-green);
+}
+
+body[data-team="pakistan"] .login-button:hover {
+    background: #1e7e34;
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+}
+
+body[data-team="westindies"] .login-button {
+    background: var(--westindies-maroon);
+}
+
+body[data-team="westindies"] .login-button:hover {
+    background: #600000;
+    box-shadow: 0 5px 15px rgba(128, 0, 0, 0.4);
+}

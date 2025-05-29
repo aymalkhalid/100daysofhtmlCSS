@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Nature Retreat Theme</title>
+    <link rel="stylesheet" href="style_day19.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="forest-background">
+        <div class="sunbeams"></div>
+        <div class="falling-leaves"></div>
+        <div class="forest-trees"></div>
+    </div>
+    <div class="nature-container">
+        <div class="nature-login-panel">
+            <h1 class="nature-title">Forest Retreat</h1>
+            <p class="nature-subtitle">Reconnect with Nature</p>
+            <form class="nature-login-form">
+                <div class="nature-form-group">
+                    <label for="nature-username">Username</label>
+                    <input type="text" id="nature-username" required autocomplete="username">
+                </div>
+                <div class="nature-form-group">
+                    <label for="nature-password">Password</label>
+                    <input type="password" id="nature-password" required autocomplete="current-password">
+                </div>
+                <div class="nature-form-options">
+                    <input type="checkbox" id="nature-remember">
+                    <label for="nature-remember">Remember me</label>
+                </div>
+                <button type="submit" class="nature-login-btn">Enter Retreat</button>
+            </form>
+            <div class="nature-divider"><span>or</span></div>
+            <div class="nature-social-login">
+                <button class="nature-social-btn google">Sign in with Google</button>
+                <button class="nature-social-btn facebook">Sign in with Facebook</button>
+            </div>
+            <div class="nature-new-user">
+                <p>New here? <a href="#" class="nature-link">Create an account</a></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Falling leaves animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const leavesContainer = document.querySelector('.falling-leaves');
+            for (let i = 0; i < 20; i++) {
+                const leaf = document.createElement('div');
+                leaf.classList.add('leaf');
+                leaf.style.left = `${Math.random() * 100}%`;
+                leaf.style.animationDelay = `${Math.random() * 5}s`;
+                leaf.style.animationDuration = `${5 + Math.random() * 5}s`;
+                leavesContainer.appendChild(leaf);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Cricket Theme</title>
+    <link rel="stylesheet" href="style_day11.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stadium-container">
+        <!-- Stadium Background Elements -->
+        <div class="stadium-lights left-lights"></div>
+        <div class="stadium-lights right-lights"></div>
+        <div class="field"></div>
+        <div class="crowd"></div>
+        
+        <!-- Floating Cricket Elements -->
+        <div class="cricket-ball"></div>
+        <div class="cricket-bat"></div>
+        <div class="confetti-container"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="card-header">
+                <div class="cricket-logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1099/1099680.png" alt="Cricket Logo">
+                </div>
+                <h1>Welcome to Cricket Fan Zone</h1>
+                <p>Sign in to access exclusive cricket content</p>
+            </div>
+            
+            <div class="team-selector">
+                <p>Select your team</p>
+                <div class="teams">
+                    <div class="team team-india" data-team="india"></div>
+                    <div class="team team-england" data-team="england"></div>
+                    <div class="team team-australia" data-team="australia"></div>
+                    <div class="team team-newzealand" data-team="newzealand"></div>
+                    <div class="team team-pakistan" data-team="pakistan"></div>
+                    <div class="team team-westindies" data-team="westindies"></div>
+                </div>
+            </div>
+            
+            <form class="login-form">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <div class="input-wrapper">
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 4.5C7 4.5 2.73 7.61 1 12C2.73 16.39 7 19.5 12 19.5C17 19.5 21.27 16.39 23 12C21.27 7.61 17 4.5 12 4.5ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17ZM12 9C10.34 9 9 10.34 9 12C9 13.66 10.34 15 12 15C13.66 15 15 13.66 15 12C15 10.34 13.66 9 12 9Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="options-row">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" class="styled-checkbox">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="login-button">
+                    <span>Sign In</span>
+                    <svg class="cricket-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.05,6.5L19.5,12L14.05,17.5L12.6,16.05L16.15,12.5L12.6,8.95L14.05,6.5M8,17.5L2.5,12L8,6.5L9.4,8.95L5.85,12.5L9.4,16.05L8,17.5Z" fill="currentColor"/>
+                    </svg>
+                </button>
+                
+                <div class="separator">
+                    <span>or continue with</span>
+                </div>
+                
+                <div class="social-login">
+                    <button type="button" class="social-btn google">
+                        <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                            <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
+                                <path fill="#4285F4" d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z"/>
+                                <path fill="#34A853" d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z"/>
+                                <path fill="#FBBC05" d="M -21.484 53.529 C -21.734 52.809 -21.864 52.039 -21.864 51.239 C -21.864 50.439 -21.724 49.669 -21.484 48.949 L -21.484 45.859 L -25.464 45.859 C -26.284 47.479 -26.754 49.299 -26.754 51.239 C -26.754 53.179 -26.284 54.999 -25.464 56.619 L -21.484 53.529 Z"/>
+                                <path fill="#EA4335" d="M -14.754 43.989 C -12.984 43.989 -11.404 44.599 -10.154 45.789 L -6.734 42.369 C -8.804 40.429 -11.514 39.239 -14.754 39.239 C -19.444 39.239 -23.494 41.939 -25.464 45.859 L -21.484 48.949 C -20.534 46.099 -17.884 43.989 -14.754 43.989 Z"/>
+                            </g>
+                        </svg>
+                    </button>
+                    <button type="button" class="social-btn facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="#1877F2" d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="social-btn twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="#1DA1F2" d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.054 10.054 0 01-3.127 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="#">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Toggle password visibility
+        document.querySelector('.toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+        });
+
+        // Team selection functionality
+        document.querySelectorAll('.team').forEach(teamEl => {
+            teamEl.addEventListener('click', function() {
+                // Remove active class from all teams
+                document.querySelectorAll('.team').forEach(t => t.classList.remove('active'));
+                
+                // Add active class to selected team
+                this.classList.add('active');
+                
+                // Get team data and update theme
+                const team = this.getAttribute('data-team');
+                document.body.setAttribute('data-team', team);
+                
+                // Play stadium cheer sound
+                playCrowdCheer();
+            });
+        });
+
+        // Create confetti effect on login button click
+        document.querySelector('.login-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Validate form (just for demo)
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (email && password) {
+                createConfetti();
+                spinCricketBall();
+                setTimeout(() => {
+                    alert('Login successful! Welcome to the Cricket Fan Zone!');
+                }, 1000);
+            } else {
+                alert('Please fill in all fields');
+            }
+        });
+
+        // Confetti animation function
+        function createConfetti() {
+            const confettiContainer = document.querySelector('.confetti-container');
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.backgroundColor = getRandomColor();
+                confettiContainer.appendChild(confetti);
+            }
+
+            // Clean up confetti after animation
+            setTimeout(() => {
+                confettiContainer.innerHTML = '';
+            }, 5000);
+        }
+
+        // Cricket ball spinning animation
+        function spinCricketBall() {
+            const ball = document.querySelector('.cricket-ball');
+            ball.classList.add('spin');
+            setTimeout(() => ball.classList.remove('spin'), 2000);
+        }
+
+        // Play crowd cheer sound (simulated)
+        function playCrowdCheer() {
+            console.log('Playing crowd cheer sound...');
+            // In a real app, would use: new Audio('crowd-cheer.mp3').play();
+        }
+
+        // Helper function for random colors
+        function getRandomColor() {
+            const colors = ['#0033A0', '#CE1126', '#00843D', '#000000', '#28A745', '#800000'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        // Animate cricket ball on load
+        window.addEventListener('load', function() {
+            setTimeout(spinCricketBall, 500);
+        });
+    </script>
+</body>
+</html>

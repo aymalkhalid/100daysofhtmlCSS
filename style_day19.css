@@ -1,0 +1,223 @@
+/* Nature Retreat Theme - Day 19 */
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', Arial, sans-serif;
+    background: #eafaf1;
+    overflow: hidden;
+}
+.forest-background {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    z-index: 0;
+    background: linear-gradient(to top, #a8e063 0%, #56ab2f 100%);
+    overflow: hidden;
+}
+.sunbeams {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 60vh;
+    background: repeating-linear-gradient(120deg, rgba(255,255,200,0.12) 0 2px, transparent 2px 40px);
+    pointer-events: none;
+    z-index: 1;
+    animation: sunbeams-move 8s linear infinite alternate;
+}
+@keyframes sunbeams-move {
+    0% { background-position: 0 0; }
+    100% { background-position: 100px 40px; }
+}
+.forest-trees {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40vh;
+    background: url('https://svgshare.com/i/14kA.svg') repeat-x bottom;
+    background-size: contain;
+    z-index: 2;
+    opacity: 0.8;
+}
+.falling-leaves {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none;
+    z-index: 3;
+}
+.leaf {
+    position: absolute;
+    top: -40px;
+    width: 32px; height: 32px;
+    background: url('https://svgshare.com/i/14kB.svg') no-repeat center/contain;
+    opacity: 0.7;
+    animation: leaf-fall linear infinite;
+}
+@keyframes leaf-fall {
+    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.7; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(100vh) rotate(360deg) scale(0.8); opacity: 0; }
+}
+.nature-container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.nature-login-panel {
+    background: rgba(255,255,255,0.85);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(56, 102, 65, 0.18);
+    padding: 2.5rem 2rem 2rem 2rem;
+    min-width: 340px;
+    max-width: 95vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #b7e4c7;
+    backdrop-filter: blur(2px);
+}
+.nature-title {
+    font-family: 'Pacifico', cursive;
+    color: #388e3c;
+    font-size: 2.2rem;
+    margin-bottom: 0.2em;
+    letter-spacing: 1px;
+}
+.nature-subtitle {
+    color: #6d9773;
+    font-size: 1.1rem;
+    margin-bottom: 1.5em;
+}
+.nature-login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1em;
+}
+.nature-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+.nature-form-group label {
+    color: #388e3c;
+    font-weight: 600;
+    font-size: 1em;
+}
+.nature-form-group input {
+    padding: 0.7em 1em;
+    border-radius: 8px;
+    border: 1.5px solid #b7e4c7;
+    background: #f6fff8;
+    font-size: 1em;
+    color: #355c3a;
+    outline: none;
+    transition: border 0.2s;
+}
+.nature-form-group input:focus {
+    border: 1.5px solid #388e3c;
+    background: #eafaf1;
+}
+.nature-form-options {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 0.5em;
+    font-size: 0.98em;
+    color: #6d9773;
+}
+.nature-login-btn {
+    background: linear-gradient(90deg, #56ab2f 0%, #a8e063 100%);
+    color: #fff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8em 0;
+    font-size: 1.1em;
+    margin-top: 0.5em;
+    box-shadow: 0 2px 8px rgba(56, 102, 65, 0.12);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+.nature-login-btn:hover {
+    background: linear-gradient(90deg, #388e3c 0%, #a8e063 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+.nature-divider {
+    width: 100%;
+    text-align: center;
+    margin: 1.2em 0 0.7em 0;
+    color: #b7e4c7;
+    position: relative;
+    font-size: 0.95em;
+}
+.nature-divider span {
+    background: #fff;
+    padding: 0 1em;
+    position: relative;
+    z-index: 1;
+}
+.nature-divider:before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; top: 50%;
+    height: 1px;
+    background: #b7e4c7;
+    z-index: 0;
+}
+.nature-social-login {
+    display: flex;
+    gap: 0.7em;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 0.7em;
+}
+.nature-social-btn {
+    border: none;
+    border-radius: 6px;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    background: #eafaf1;
+    color: #355c3a;
+    box-shadow: 0 1px 4px rgba(56, 102, 65, 0.08);
+    transition: background 0.2s, color 0.2s;
+}
+.nature-social-btn.google {
+    background: #fff;
+    color: #4285f4;
+    border: 1.5px solid #b7e4c7;
+}
+.nature-social-btn.facebook {
+    background: #fff;
+    color: #1877f3;
+    border: 1.5px solid #b7e4c7;
+}
+.nature-social-btn:hover {
+    background: #b7e4c7;
+    color: #388e3c;
+}
+.nature-new-user {
+    margin-top: 0.7em;
+    font-size: 0.98em;
+    color: #6d9773;
+}
+.nature-link {
+    color: #388e3c;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+.nature-link:hover {
+    color: #56ab2f;
+}
+@media (max-width: 500px) {
+    .nature-login-panel {
+        min-width: 90vw;
+        padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    }
+    .nature-title {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,1053 @@
+/* GTA VI Theme Login Design - Day 12 */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+    /* GTA VI / Vice City Colors */
+    --neon-pink: #ff00ff;
+    --neon-blue: #00ffff;
+    --electric-blue: #0099ff;
+    --neon-purple: #bc13fe;
+    --hot-pink: #ff2a6d;
+    
+    /* Background Colors */
+    --dark-blue: #020024;
+    --night-blue: #09012f;
+    --deep-purple: #1c0062;
+    
+    /* UI Elements */
+    --text-color: #ffffff;
+    --card-bg: rgba(5, 5, 20, 0.85);
+    --input-bg: rgba(20, 20, 40, 0.7);
+    --input-border: rgba(255, 255, 255, 0.1);
+    
+    /* Glows */
+    --pink-glow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(255, 0, 255, 0.5), 0 0 30px rgba(255, 0, 255, 0.3);
+    --blue-glow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.3);
+    --mixed-glow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(0, 153, 255, 0.3);
+    
+    /* Transitions */
+    --transition-fast: all 0.2s ease;
+    --transition-normal: all 0.3s ease;
+    --transition-slow: all 0.6s ease;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: var(--dark-blue);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Elements */
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.retro-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(0deg, transparent 24%, rgba(32, 105, 160, 0.3) 25%, rgba(32, 105, 160, 0.3) 26%, transparent 27%, transparent 74%, rgba(32, 105, 160, 0.3) 75%, rgba(32, 105, 160, 0.3) 76%, transparent 77%, transparent),
+                     linear-gradient(90deg, transparent 24%, rgba(32, 105, 160, 0.3) 25%, rgba(32, 105, 160, 0.3) 26%, transparent 27%, transparent 74%, rgba(32, 105, 160, 0.3) 75%, rgba(32, 105, 160, 0.3) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+    background-position: center;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transform: rotateX(60deg) translateZ(-100px);
+    animation: grid-animation 20s linear infinite;
+    opacity: 0.5;
+}
+
+.sun {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(to top, var(--hot-pink), var(--neon-pink));
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 100px var(--hot-pink), 0 0 200px var(--neon-pink);
+}
+
+.mountains {
+    position: absolute;
+    bottom: 12%;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background: linear-gradient(180deg, transparent 0%, var(--deep-purple) 90%);
+    clip-path: polygon(0% 100%, 5% 90%, 10% 100%, 15% 80%, 20% 90%, 25% 70%, 30% 90%, 35% 80%, 40% 95%, 45% 70%, 50% 100%, 55% 75%, 60% 95%, 65% 80%, 70% 100%, 75% 70%, 80% 90%, 85% 75%, 90% 90%, 95% 80%, 100% 100%);
+}
+
+.city-skyline {
+    position: absolute;
+    bottom: 13%;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background-color: rgba(0, 0, 0, 0.8);
+    clip-path: polygon(
+        0% 100%, 0% 70%, 2% 70%, 2% 40%, 4% 40%, 4% 60%, 6% 60%, 6% 30%, 8% 30%, 8% 50%, 
+        10% 50%, 10% 20%, 12% 20%, 12% 40%, 14% 40%, 14% 10%, 16% 10%, 16% 50%, 18% 50%, 
+        18% 30%, 20% 30%, 20% 70%, 22% 70%, 22% 50%, 24% 50%, 24% 30%, 26% 30%, 26% 60%, 
+        28% 60%, 28% 40%, 30% 40%, 30% 70%, 32% 70%, 32% 45%, 34% 45%, 34% 20%, 36% 20%, 
+        36% 40%, 38% 40%, 38% 70%, 40% 70%, 40% 30%, 42% 30%, 42% 10%, 44% 10%, 44% 40%, 
+        46% 40%, 46% 20%, 48% 20%, 48% 50%, 50% 50%, 50% 0%, 52% 0%, 52% 30%, 54% 30%, 
+        54% 50%, 56% 50%, 56% 20%, 58% 20%, 58% 60%, 60% 60%, 60% 30%, 62% 30%, 62% 10%, 
+        64% 10%, 64% 50%, 66% 50%, 66% 70%, 68% 70%, 68% 40%, 70% 40%, 70% 20%, 72% 20%, 
+        72% 40%, 74% 40%, 74% 60%, 76% 60%, 76% 40%, 78% 40%, 78% 20%, 80% 20%, 80% 50%, 
+        82% 50%, 82% 70%, 84% 70%, 84% 40%, 86% 40%, 86% 60%, 88% 60%, 88% 70%, 90% 70%, 
+        90% 30%, 92% 30%, 92% 60%, 94% 60%, 94% 40%, 96% 40%, 96% 70%, 98% 70%, 98% 50%, 
+        100% 50%, 100% 100%
+    );
+}
+
+.character-image {
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+    width: 300px;
+    height: 400px;
+    background-image: url('gta_vi_character.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    transform: perspective(800px) rotateY(-10deg);
+    transition: var(--transition-normal);
+}
+
+.cover-image {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    width: 300px;
+    height: 400px;
+    background-image: url('https://gaming-cdn.com/images/products/15506/orig/grand-theft-auto-vi-playstation-5-game-playstation-store-cover.jpg?v=1746542753');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(255, 42, 109, 0.7);
+    border: 2px solid var(--neon-blue);
+    animation: pulse-border 2s infinite alternate;
+    transform: perspective(800px) rotateY(10deg);
+    transition: var(--transition-normal);
+}
+
+/* Overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, var(--night-blue) 0%, transparent 50%, var(--dark-blue) 100%);
+}
+
+/* Scanlines CRT Effect */
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.3) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.2;
+    mix-blend-mode: overlay;
+}
+
+.crt-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 11;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.9);
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 100%);
+    opacity: 0.6;
+}
+
+.glitch-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 12;
+    mix-blend-mode: screen;
+    opacity: 0;
+    background: linear-gradient(45deg, transparent 20%, var(--neon-pink) 20%, var(--neon-pink) 30%, transparent 30%, transparent 70%, var(--neon-blue) 70%, var(--neon-blue) 80%, transparent 80%);
+    transition: opacity 0.2s ease;
+}
+
+.glitch-overlay.active {
+    opacity: 0.5;
+    animation: glitch-animation 0.5s linear;
+}
+
+.glitch-overlay.quick-glitch {
+    opacity: 0.3;
+    animation: quick-glitch 0.2s linear;
+}
+
+/* Stars */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 0 5px white;
+    animation: twinkle 5s infinite ease-in-out;
+}
+
+/* Content Containers */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.logo-container {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.logo {
+    font-family: 'Audiowide', cursive;
+    font-size: 100px;
+    color: white;
+    text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-blue), 0 0 40px var(--electric-blue);
+    margin: 0;
+    padding: 0;
+    letter-spacing: 3px;
+    position: relative;
+    animation: float 5s ease-in-out infinite;
+}
+
+.subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    color: white;
+    margin-top: -15px;
+    opacity: 0.8;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.login-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-pink);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transform: translateZ(0);
+    animation: card-appear 0.6s ease-out forwards;
+}
+
+.card-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.card-header h2 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin: 0;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+}
+
+/* Login Form */
+.login-form {
+    padding: 25px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 15px;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: var(--transition-fast);
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 0 2px rgba(0, 153, 255, 0.3);
+}
+
+.input-highlight {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    transition: width 0.3s ease;
+}
+
+.input-wrapper input:focus + .input-highlight {
+    width: 100%;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: var(--neon-blue);
+}
+
+/* Options Row */
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.styled-checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--neon-blue);
+}
+
+.remember-me label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+.forgot-password {
+    font-size: 12px;
+    color: var(--neon-blue);
+    text-decoration: none;
+    letter-spacing: 1px;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.forgot-password:hover {
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.forgot-password::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.forgot-password:hover::after {
+    transform: scaleX(1);
+}
+
+/* Login Button */
+.login-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 153, 255, 0.5);
+}
+
+.login-button:hover {
+    box-shadow: 0 0 15px rgba(0, 153, 255, 0.8), 0 0 30px rgba(188, 19, 254, 0.4);
+    transform: translateY(-2px);
+}
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+.login-button.active {
+    animation: button-glitch 0.5s linear;
+}
+
+.btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.btn-glitch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+}
+
+.login-button:hover .btn-glitch {
+    animation: btn-glitch 1.5s infinite;
+}
+
+/* Login Footer */
+.login-footer {
+    margin-top: 25px;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+}
+
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.separator span {
+    padding: 0 15px;
+    letter-spacing: 1px;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.social-btn:hover {
+    border-color: var(--neon-blue);
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 153, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Signup Prompt */
+.signup-prompt {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 1px;
+}
+
+.signup-prompt a {
+    color: var(--neon-pink);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.signup-prompt a:hover {
+    color: var(--neon-blue);
+    text-shadow: 0 0 5px var(--neon-pink);
+}
+
+/* Loading Bar */
+.loading-bar {
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 100;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-pink), var(--neon-purple), var(--neon-blue));
+    background-size: 300% 100%;
+    animation: progress-animation 2s linear forwards, gradient-shift 3s linear infinite;
+}
+
+.progress.loaded {
+    width: 100%;
+}
+
+/* Radio Player */
+.radio-player {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(5, 5, 20, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 5px var(--neon-blue);
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    transition: var(--transition-normal);
+}
+
+.radio-player:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), 0 0 10px var(--neon-pink);
+}
+
+.radio-station {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: var(--neon-pink);
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.5);
+    transition: var(--transition-fast);
+}
+
+.radio-station.changing {
+    animation: station-change 0.5s ease;
+}
+
+.radio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.radio-btn {
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--neon-blue);
+    transition: var(--transition-fast);
+}
+
+.radio-btn:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--neon-pink);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 5px rgba(0, 153, 255, 0.5);
+}
+
+#play-pause .pause-icon {
+    display: none;
+}
+
+.radio-player.playing #play-pause .play-icon {
+    display: none;
+}
+
+.radio-player.playing #play-pause .pause-icon {
+    display: block;
+}
+
+.radio-player.playing .radio-station {
+    color: var(--neon-blue);
+    animation: pulse 2s infinite;
+}
+
+/* Glitch Effects */
+.glitch {
+    position: relative;
+    cursor: default;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    clip: rect(0, 0, 0, 0);
+}
+
+.glitch::before {
+    left: -2px;
+    text-shadow: 2px 0 var(--neon-blue);
+    animation: glitch-animation-1 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: 2px;
+    text-shadow: -2px 0 var(--neon-pink);
+    animation: glitch-animation-2 2s infinite linear alternate-reverse;
+}
+
+.glitch-subtle {
+    position: relative;
+    cursor: default;
+}
+
+.glitch-subtle::before,
+.glitch-subtle::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
+.glitch-subtle::before {
+    left: -1px;
+    text-shadow: 1px 0 var(--neon-blue);
+    animation: glitch-animation-subtle-1 4s infinite linear alternate-reverse;
+}
+
+.glitch-subtle::after {
+    left: 1px;
+    text-shadow: -1px 0 var(--neon-pink);
+    animation: glitch-animation-subtle-2 3s infinite linear alternate-reverse;
+}
+
+/* Animations */
+@keyframes grid-animation {
+    0% {
+        transform: rotateX(60deg) translateZ(-100px) translateY(0);
+    }
+    100% {
+        transform: rotateX(60deg) translateZ(-100px) translateY(500px);
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes card-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes glitch-animation-1 {
+    0%, 5%, 10% {
+        clip: rect(0, 900px, 2px, 0);
+    }
+    15%, 20% {
+        clip: rect(0, 900px, 0, 0);
+    }
+    25%, 30% {
+        clip: rect(30px, 900px, 36px, 0);
+    }
+    35%, 40% {
+        clip: rect(0, 900px, 0, 0);
+    }
+    45%, 50% {
+        clip: rect(60px, 900px, 70px, 0);
+    }
+    55%, 60% {
+        clip: rect(0, 900px, 0, 0);
+    }
+    65%, 70% {
+        clip: rect(10px, 900px, 16px, 0);
+    }
+    75%, 80%, 85%, 90%, 95%, 100% {
+        clip: rect(0, 900px, 0, 0);
+    }
+}
+
+@keyframes glitch-animation-2 {
+    0%, 15%, 30% {
+        clip: rect(0, 900px, 0, 0);
+    }
+    5%, 10% {
+        clip: rect(10px, 900px, 20px, 0);
+    }
+    20%, 25% {
+        clip: rect(30px, 900px, 40px, 0);
+    }
+    35%, 40% {
+        clip: rect(50px, 900px, 60px, 0);
+    }
+    45%, 55% {
+        clip: rect(0, 900px, 0, 0);
+    }
+    50%, 60% {
+        clip: rect(70px, 900px, 80px, 0);
+    }
+    65%, 70%, 75%, 80%, 85%, 90%, 95%, 100% {
+        clip: rect(0, 900px, 0, 0);
+    }
+}
+
+@keyframes glitch-animation-subtle-1 {
+    0%, 40%, 50%, 80%, 90%, 100% {
+        clip: rect(0, 900px, 0, 0);
+    }
+    10%, 15% {
+        clip: rect(0, 900px, 2px, 0);
+    }
+    45% {
+        clip: rect(0, 900px, 5px, 0);
+    }
+    60% {
+        clip: rect(0, 900px, 3px, 0);
+    }
+}
+
+@keyframes glitch-animation-subtle-2 {
+    0%, 30%, 40%, 60%, 80%, 100% {
+        clip: rect(0, 900px, 0, 0);
+    }
+    15%, 20% {
+        clip: rect(0, 900px, 2px, 0);
+    }
+    45% {
+        clip: rect(0, 900px, 4px, 0);
+    }
+    70% {
+        clip: rect(0, 900px, 3px, 0);
+    }
+}
+
+@keyframes glitch-animation {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateX(0);
+    }
+    20% {
+        opacity: 0.75;
+        transform: translateX(5px);
+    }
+    40% {
+        opacity: 0.65;
+        transform: translateX(-5px);
+    }
+    60% {
+        opacity: 0.9;
+        transform: translateX(2px);
+    }
+    80% {
+        opacity: 0.7;
+        transform: translateX(-2px);
+    }
+}
+
+@keyframes quick-glitch {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes btn-glitch {
+    0% {
+        transform: translateX(-100%);
+    }
+    50%, 100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes button-glitch {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    20% {
+        transform: translateY(2px) scale(1.03) skewX(4deg);
+    }
+    40% {
+        transform: translateY(-2px) scale(0.97) skewX(-4deg);
+    }
+    60% {
+        transform: translateY(1px) scale(1.01) skewX(2deg);
+    }
+    80% {
+        transform: translateY(-1px) scale(0.99) skewX(-1deg);
+    }
+}
+
+@keyframes progress-animation {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 0%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes station-change {
+    0%, 100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    50% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 0 0 5px rgba(0, 153, 255, 0.5);
+    }
+    50% {
+        opacity: 0.8;
+        text-shadow: 0 0 10px rgba(0, 153, 255, 0.8);
+    }
+}
+
+/* Character Glow Animation */
+@keyframes character-glow {
+    0% {
+        box-shadow: 0 0 20px var(--neon-purple);
+    }
+    50% {
+        box-shadow: 0 0 25px var(--neon-pink), 0 0 35px var(--electric-blue);
+    }
+    100% {
+        box-shadow: 0 0 20px var(--neon-purple);
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 70px;
+    }
+    
+    .subtitle {
+        font-size: 16px;
+    }
+    
+    .content-container {
+        padding: 20px 15px;
+    }
+    
+    .radio-player {
+        padding: 5px 10px;
+    }
+    
+    .radio-station {
+        font-size: 12px;
+    }
+    
+    .radio-btn {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .sun {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 50px;
+    }
+    
+    .subtitle {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+    
+    .login-card {
+        max-width: 100%;
+    }
+    
+    .card-header h2 {
+        font-size: 20px;
+    }
+    
+    .options-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .forgot-password {
+        align-self: flex-end;
+    }
+    
+    .login-form {
+        padding: 20px;
+    }
+}
+
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 42, 109, 0.7);
+        border-color: var(--neon-blue);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(255, 0, 255, 0.9);
+        border-color: var(--neon-pink);
+    }
+}
+
+.character-image:hover, .cover-image:hover {
+    transform: perspective(800px) rotateY(0deg) scale(1.05);
+    z-index: 2;
+    box-shadow: 0 0 30px var(--neon-purple);
+}

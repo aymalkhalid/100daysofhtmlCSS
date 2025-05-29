@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Cryptocurrency/Blockchain Theme</title>
+    <link rel="stylesheet" href="style_day15.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="blockchain-bg">
+        <div class="hex-grid"></div>
+        <div class="data-streams">
+            <div class="stream stream-1"></div>
+            <div class="stream stream-2"></div>
+            <div class="stream stream-3"></div>
+            <div class="stream stream-4"></div>
+            <div class="stream stream-5"></div>
+        </div>
+        <div class="blockchain-nodes">
+            <div class="node node-1"></div>
+            <div class="node node-2"></div>
+            <div class="node node-3"></div>
+            <div class="node node-4"></div>
+            <div class="node node-5"></div>
+            <div class="node node-6"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="crypto-card">
+            <div class="login-header">
+                <div class="logo">
+                    <div class="logo-hex">
+                        <div class="logo-inner"></div>
+                    </div>
+                </div>
+                <h1>CRYPTO<span>VAULT</span></h1>
+                <p class="subtitle">Secure blockchain authentication</p>
+            </div>
+            
+            <form class="login-form">
+                <div class="crypto-prices">
+                    <div class="crypto-price">
+                        <span class="crypto-icon">₿</span>
+                        <span class="crypto-value">$67,842</span>
+                        <span class="crypto-change positive">+2.4%</span>
+                    </div>
+                    <div class="crypto-price">
+                        <span class="crypto-icon">Ξ</span>
+                        <span class="crypto-value">$3,712</span>
+                        <span class="crypto-change positive">+1.8%</span>
+                    </div>
+                    <div class="crypto-price">
+                        <span class="crypto-icon">◎</span>
+                        <span class="crypto-value">$142</span>
+                        <span class="crypto-change negative">-0.7%</span>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="username">Wallet ID</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="username" required>
+                        <div class="encryption-animation"></div>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Private Key</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" required>
+                        <div class="encryption-animation"></div>
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="verification-block">
+                    <div class="verification-header">
+                        <span>Blockchain Verification</span>
+                        <div class="verification-status pending">Pending</div>
+                    </div>
+                    <div class="verification-progress">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
+                
+                <div class="options-group">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" class="styled-checkbox">
+                        <label for="remember">Remember Wallet</label>
+                    </div>
+                    <a href="#" class="forgot-link">Recover Keys</a>
+                </div>
+                
+                <button type="submit" class="login-button">
+                    <span>Connect Wallet</span>
+                    <div class="button-glow"></div>
+                </button>
+                
+                <div class="separator">
+                    <div class="line"></div>
+                    <span>or</span>
+                    <div class="line"></div>
+                </div>
+                
+                <div class="wallet-options">
+                    <button type="button" class="wallet-option">
+                        <div class="wallet-icon metamask"></div>
+                        <span>MetaMask</span>
+                    </button>
+                    <button type="button" class="wallet-option">
+                        <div class="wallet-icon coinbase"></div>
+                        <span>Coinbase</span>
+                    </button>
+                    <button type="button" class="wallet-option">
+                        <div class="wallet-icon trust"></div>
+                        <span>Trust</span>
+                    </button>
+                </div>
+                
+                <div class="signup-prompt">
+                    <p>Don't have a wallet? <a href="#" class="signup-link">Create one</a></p>
+                </div>
+            </form>
+            
+            <div class="security-mode">
+                <span>Enhanced Security</span>
+                <label class="toggle">
+                    <input type="checkbox" id="security-toggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="network-status">
+            <div class="status-indicator active"></div>
+            <span>Connected to Mainnet</span>
+        </div>
+    </div>
+
+    <script>
+        // Simulation of blockchain verification
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const progressBar = document.querySelector('.progress-bar');
+                const verificationStatus = document.querySelector('.verification-status');
+                
+                // Animate progress bar
+                progressBar.style.width = '100%';
+                
+                // Change status after verification completes
+                setTimeout(() => {
+                    verificationStatus.classList.remove('pending');
+                    verificationStatus.classList.add('verified');
+                    verificationStatus.textContent = 'Verified';
+                }, 2000);
+            }, 1000);
+            
+            // Toggle password visibility
+            const togglePassword = document.querySelector('.toggle-password');
+            const passwordInput = document.querySelector('#password');
+            
+            togglePassword.addEventListener('click', () => {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+            });
+            
+            // Animate hexagons
+            const hexGrid = document.querySelector('.hex-grid');
+            for (let i = 0; i < 50; i++) {
+                const hex = document.createElement('div');
+                hex.classList.add('hexagon');
+                hex.style.top = `${Math.random() * 100}%`;
+                hex.style.left = `${Math.random() * 100}%`;
+                hex.style.animationDelay = `${Math.random() * 5}s`;
+                hex.style.animationDuration = `${5 + Math.random() * 10}s`;
+                hexGrid.appendChild(hex);
+            }
+            
+            // Animate nodes connection
+            const nodes = document.querySelectorAll('.node');
+            setInterval(() => {
+                const randomNode1 = Math.floor(Math.random() * nodes.length);
+                let randomNode2 = Math.floor(Math.random() * nodes.length);
+                
+                // Ensure we don't connect a node to itself
+                while(randomNode1 === randomNode2) {
+                    randomNode2 = Math.floor(Math.random() * nodes.length);
+                }
+                
+                // Create connection
+                const connection = document.createElement('div');
+                connection.classList.add('connection');
+                document.querySelector('.blockchain-nodes').appendChild(connection);
+                
+                // Calculate position and angle
+                const node1 = nodes[randomNode1].getBoundingClientRect();
+                const node2 = nodes[randomNode2].getBoundingClientRect();
+                
+                const x1 = node1.left + node1.width / 2;
+                const y1 = node1.top + node1.height / 2;
+                const x2 = node2.left + node2.width / 2;
+                const y2 = node2.top + node2.height / 2;
+                
+                const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                const angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI;
+                
+                connection.style.width = `${distance}px`;
+                connection.style.left = `${x1}px`;
+                connection.style.top = `${y1}px`;
+                connection.style.transform = `rotate(${angle}deg)`;
+                
+                // Remove connection after animation
+                setTimeout(() => {
+                    connection.remove();
+                }, 2000);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
