@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Day 26: Steampunk Theme</title>
+    <link rel="stylesheet" href="style_day26.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Cinzel:wght@400;700&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="steam-particles"></div>
+    <div class="gear-background">
+        <div class="gear gear1"></div>
+        <div class="gear gear2"></div>
+        <div class="gear gear3"></div>
+        <div class="gear gear4"></div>
+        <div class="gear gear5"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="mechanical-panel">
+            <div class="panel-header">
+                <h1 class="steampunk-title">AETHERIC ACCESS PORTAL</h1>
+                <div class="rivets">
+                    <span class="rivet"></span>
+                    <span class="rivet"></span>
+                    <span class="rivet"></span>
+                    <span class="rivet"></span>
+                </div>
+                <div class="pressure-gauge">
+                    <div class="gauge-face"></div>
+                    <div class="gauge-needle"></div>
+                    <div class="gauge-center"></div>
+                </div>
+            </div>
+
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="username">OPERATOR IDENTITY</label>
+                    <div class="input-container">
+                        <input type="text" id="username" required>
+                        <div class="input-mechanism">
+                            <div class="cogs">
+                                <div class="small-cog"></div>
+                                <div class="medium-cog"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">ACCESS CIPHER</label>
+                    <div class="input-container">
+                        <input type="password" id="password" required>
+                        <button type="button" class="toggle-password">
+                            <div class="key-mechanism">
+                                <div class="key"></div>
+                            </div>
+                        </button>
+                        <div class="input-mechanism">
+                            <div class="lock-mechanism"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" class="lever-checkbox">
+                        <label for="remember" class="checkbox-label">
+                            <div class="lever">
+                                <div class="lever-base"></div>
+                                <div class="lever-handle"></div>
+                            </div>
+                            <span>Remember Configuration</span>
+                        </label>
+                    </div>
+                    <a href="#" class="brass-link">Reset Access Ciphers</a>
+                </div>
+
+                <button type="submit" class="login-button">
+                    <div class="button-brass-plate">
+                        <span>ENGAGE TRANSMISSION</span>
+                    </div>
+                    <div class="steam-release"></div>
+                </button>
+            </form>
+
+            <div class="panel-footer">
+                <p class="register-text">Need Operator Credentials? <a href="#" class="brass-link">Register</a></p>
+                <div class="mechanical-separator">
+                    <div class="piston left-piston"></div>
+                    <div class="piston-rod"></div>
+                    <div class="piston right-piston"></div>
+                </div>
+                
+                <div class="wax-seal">
+                    <div class="wax"></div>
+                    <div class="seal-imprint">AS</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="mechanical-sound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-steam-train-whistle-1568.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="gear-sound" preload="auto">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-video-game-retro-click-237.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script_day26.js"></script>
+</body>
+</html>

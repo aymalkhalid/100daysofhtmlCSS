@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page - Day 24: Gun Store Theme</title>
+    <link rel="stylesheet" href="style_day24.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Condensed:wght@300;400;700&family=Staatliches&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="tactical-hud-overlay"></div>
+    <div class="background-container">
+        <div class="ammo-crate-bg"></div>
+        <div class="metal-panel-bg"></div>
+        <div class="gun-display">
+            <div class="gun gun1"></div>
+            <div class="gun gun2"></div>
+            <div class="gun gun3"></div>
+            <div class="gun gun4"></div>
+        </div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-panel" id="loginPanel">
+            <div class="panel-header">
+                <h1 class="panel-title">ACCESS TERMINAL</h1>
+                <div class="security-level">Clearance: LVL-03</div>
+            </div>
+
+            <div class="target-reticle-animation">
+                <div class="reticle-ring"></div>
+                <div class="reticle-crosshair-v"></div>
+                <div class="reticle-crosshair-h"></div>
+            </div>
+
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Operator ID:</label>
+                    <div class="input-field-container">
+                        <span class="input-icon ammo-icon"></span>
+                        <input type="text" id="username" name="username" required placeholder="Enter Callsign">
+                        <div class="input-scanline"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Access Code:</label>
+                    <div class="input-field-container">
+                        <span class="input-icon keycard-icon"></span>
+                        <input type="password" id="password" name="password" required placeholder="Enter Passcode">
+                        <button type="button" id="togglePassword" class="password-toggle-button">
+                            <span class="icon-eye-open"></span>
+                            <span class="icon-eye-closed" style="display:none;"></span>
+                        </button>
+                        <div class="input-scanline"></div>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember" class="checkbox-label">Secure Channel</label>
+                    </div>
+                    <a href="#" class="link forgot-password">Intel Recovery</a>
+                </div>
+
+                <button type="submit" class="login-button" id="loginButton">
+                    <span class="button-text">ENGAGE</span>
+                    <div class="button-loader" style="display: none;"></div>
+                    <div class="muzzle-flash-animation"></div>
+                </button>
+            </form>
+
+            <div class="panel-footer">
+                <p>System Status: <span class="status-indicator online">ONLINE</span> // Protocol: XZ-258</p>
+                <div class="loading-bar-container">
+                    <div class="loading-bar-progress"></div>
+                </div>
+            </div>
+        </div>
+        <div class="bullet-holes">
+            <div class="bullet-hole bh1"></div>
+            <div class="bullet-hole bh2"></div>
+            <div class="bullet-hole bh3"></div>
+        </div>
+    </div>
+
+    <script src="script_day24.js"></script>
+</body>
+</html>

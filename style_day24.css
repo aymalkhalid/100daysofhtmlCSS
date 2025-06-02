@@ -1,0 +1,517 @@
+/* style_day24.css - Gun Store Theme */
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #1a1a1a; /* Dark, gritty background */
+    color: #e0e0e0; /* Light text for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.ammo-crate-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'); /* Placeholder */
+    background-size: cover;
+    opacity: 0.2;
+}
+
+.metal-panel-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/brushed-metal.png'); /* Placeholder */
+    background-size: cover;
+    opacity: 0.3;
+    mix-blend-mode: overlay;
+}
+
+/* Gun Display in Background */
+.gun-display {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: auto; /* Changed to auto to allow interaction with guns */
+}
+
+.gun {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.25;
+    transition: opacity 0.5s ease;
+    filter: drop-shadow(0 0 5px rgba(0, 255, 0, 0.4));
+}
+
+.gun1 {
+    top: 10%;
+    right: 15%;
+    width: 350px;
+    height: 130px;
+    background-image: url('./static/images/day24/sniper_rifle_PNG44.png');
+    transform: rotate(15deg);
+}
+
+.gun2 {
+    bottom: 15%;
+    left: 10%;
+    width: 300px;
+    height: 170px;
+    background-image: url('./static/images/day24/pngimg.com - assault_rifle_PNG1442.png');
+    transform: rotate(-10deg);
+}
+
+.gun3 {
+    top: 20%;
+    left: 8%;
+    width: 200px;
+    height: 140px;
+    background-image: url('./static/images/day24/black-pistol-white_1308-36380.png');
+    transform: rotate(5deg);
+}
+
+.gun4 {
+    bottom: 25%;
+    right: 10%;
+    width: 230px;
+    height: 130px;
+    background-image: url('./static/images/day24/png-clipart-golden-pistol-guns-pistol-free-download-pistol-thumbnail.png');
+    transform: rotate(-5deg);
+}
+
+.gun:hover {
+    opacity: 0.4;
+}
+
+.tactical-hud-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(0, 255, 0, 0.05) 20px),
+        repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(0, 255, 0, 0.05) 20px);
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.3;
+}
+
+.login-container {
+    position: relative;
+    perspective: 1000px;
+}
+
+.login-panel {
+    background-color: rgba(40, 44, 52, 0.85); /* Dark, semi-transparent panel */
+    border: 2px solid #00ff00; /* Green tactical border */
+    border-radius: 8px;
+    padding: 30px 40px;
+    width: 400px;
+    box-shadow: 0 0 25px rgba(0, 255, 0, 0.3), inset 0 0 10px rgba(0, 255, 0, 0.2);
+    backdrop-filter: blur(5px);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-out;
+}
+
+.login-panel:hover {
+    transform: rotateY(5deg) rotateX(2deg);
+}
+
+.panel-header {
+    text-align: center;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+    padding-bottom: 15px;
+}
+
+.panel-title {
+    font-family: 'Staatliches', cursive;
+    color: #00ff00; /* Tactical Green */
+    font-size: 2.5em;
+    margin: 0 0 5px 0;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+}
+
+.security-level {
+    font-size: 0.9em;
+    color: #8fbc8f; /* Darker green */
+    text-transform: uppercase;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9em;
+    color: #00ff00;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.input-field-container {
+    position: relative;
+}
+
+.input-field-container .input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    opacity: 0.6;
+    /* Placeholder icons - replace with actual SVGs or font icons */
+}
+.ammo-icon { background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2300ff00"><path d="M16.5 8H14.5V6H12.5V8H10.5V6H8.5V8H6.5V10H8.5V12H6.5V14H8.5V16H10.5V18H12.5V16H14.5V18H16.5V16H18.5V14H16.5V12H18.5V10H16.5V8Z"/></svg>') center/contain no-repeat; }
+.keycard-icon { background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%2300ff00"><path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM10 16H6V14H10V16ZM10 12H6V10H10V12ZM18 16H12V14H18V16ZM18 12H12V10H18V12Z"/></svg>') center/contain no-repeat; }
+
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 40px); /* Account for padding and icon */
+    padding: 12px 12px 12px 35px; /* Left padding for icon */
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid #008000; /* Darker green border */
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #00ff00;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.input-scanline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 255, 0, 0.7);
+    transform-origin: left;
+    transform: scaleX(0);
+    animation: scan 1.5s infinite linear;
+    opacity: 0;
+}
+
+input[type="text"]:focus + .input-scanline,
+input[type="password"]:focus + .input-scanline,
+.input-field-container:focus-within .input-scanline { /* For password field with button */
+    animation: scan 1.5s infinite linear;
+    opacity: 1;
+}
+
+
+@keyframes scan {
+    0% { transform: scaleX(0); transform-origin: left; }
+    50% { transform: scaleX(1); transform-origin: left; }
+    50.1% { transform: scaleX(1); transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: right; }
+}
+
+.password-toggle-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #00ff00;
+    cursor: pointer;
+    padding: 5px;
+}
+.password-toggle-button .icon-eye-open, .password-toggle-button .icon-eye-closed {
+    width: 20px; height: 20px; display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.icon-eye-open { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>'); }
+.icon-eye-closed { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%2300ff00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>');}
+
+
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+    margin-bottom: 25px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #00ff00;
+    border-radius: 3px;
+    margin-right: 8px;
+    cursor: pointer;
+    position: relative;
+    background-color: rgba(0,0,0,0.2);
+}
+
+input[type="checkbox"]:checked {
+    background-color: #00ff00;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '\2713'; /* Checkmark */
+    font-size: 12px;
+    color: #1a1a1a; /* Dark color for checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+.checkbox-label {
+    color: #aaffaa; /* Lighter green */
+    cursor: pointer;
+}
+
+.link.forgot-password {
+    color: #00ff00;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.link.forgot-password:hover {
+    color: #80ff80;
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+}
+
+.login-button {
+    background-color: #008000; /* Dark green */
+    color: #ffffff;
+    border: 2px solid #00ff00; /* Bright green border */
+    padding: 12px 20px;
+    font-size: 1.1em;
+    font-family: 'Staatliches', cursive;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.1s;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-button:hover {
+    background-color: #00ff00;
+    color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.6);
+}
+
+.login-button:active {
+    transform: scale(0.98);
+}
+
+.button-text {
+    position: relative;
+    z-index: 1;
+}
+
+.muzzle-flash-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 223, 186, 0.8); /* Light orange/yellow */
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.login-button.loading .muzzle-flash-animation {
+    animation: muzzleFlash 0.3s ease-out forwards;
+}
+
+@keyframes muzzleFlash {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(3); opacity: 0.4; } /* Expand quickly */
+    100% { transform: translate(-50%, -50%) scale(0); opacity: 0; } /* Fade out */
+}
+
+
+.panel-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #8fbc8f;
+    border-top: 1px solid rgba(0, 255, 0, 0.3);
+    padding-top: 15px;
+}
+
+.status-indicator.online {
+    color: #00ff00;
+    font-weight: bold;
+}
+.status-indicator.offline {
+    color: #ff4500; /* Red for offline */
+    font-weight: bold;
+}
+
+.loading-bar-container {
+    width: 80%;
+    height: 8px;
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid #008000;
+    border-radius: 4px;
+    margin: 10px auto 0;
+    overflow: hidden;
+}
+
+.loading-bar-progress {
+    width: 0%; /* Initial state */
+    height: 100%;
+    background-color: #00ff00;
+    border-radius: 3px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Target Reticle Animation */
+.target-reticle-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+    pointer-events: none;
+    animation: reticleScan 8s infinite linear;
+}
+
+.reticle-ring {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed #00ff00;
+    border-radius: 50%;
+    animation: reticleRotate 10s infinite linear;
+}
+
+.reticle-crosshair-v, .reticle-crosshair-h {
+    position: absolute;
+    background-color: #00ff00;
+}
+.reticle-crosshair-v {
+    width: 2px;
+    height: 110%;
+    top: -5%;
+    left: calc(50% - 1px);
+}
+.reticle-crosshair-h {
+    width: 110%;
+    height: 2px;
+    left: -5%;
+    top: calc(50% - 1px);
+}
+
+@keyframes reticleRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+@keyframes reticleScan {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.1; }
+    25% { transform: translate(-40%, -60%) scale(0.9); opacity: 0.15; }
+    50% { transform: translate(-50%, -50%) scale(1); opacity: 0.2; }
+    75% { transform: translate(-60%, -40%) scale(0.9); opacity: 0.15; }
+}
+
+
+/* Bullet Holes */
+.bullet-holes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.bullet-hole {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="30" fill="rgba(0,0,0,0.7)"/><circle cx="50" cy="50" r="10" fill="rgba(255,255,255,0.3)"/><path d="M45,30 Q50,20 55,30 T45,30 M30,45 Q20,50 30,55 T30,45 M55,70 Q50,80 45,70 T55,70 M70,55 Q80,50 70,45 T70,55" fill="rgba(0,0,0,0.5)"/></svg>');
+    background-size: contain;
+    opacity: 0.6;
+    transform: rotate(var(--rotate, 0deg)) scale(var(--scale, 1));
+}
+.bh1 { top: 10%; left: 15%; --rotate: 15deg; --scale: 0.8; }
+.bh2 { top: 70%; left: 80%; --rotate: -10deg; --scale: 1.1; }
+.bh3 { top: 40%; left: 5%; --rotate: 30deg; --scale: 0.9; }
+
+
+/* Loader for button */
+.button-loader {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* Above button text if it's also absolutely positioned */
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .login-panel {
+        width: 90%;
+        padding: 20px;
+    }
+    .panel-title {
+        font-size: 2em;
+    }
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .link.forgot-password {
+        margin-top: 10px;
+    }
+}
+

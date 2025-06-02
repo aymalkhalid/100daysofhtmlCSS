@@ -1,0 +1,776 @@
+/* Day 26: Steampunk Theme */
+
+:root {
+    --brass: #b5a642;
+    --dark-brass: #9b8d3f;
+    --light-brass: #d4c576;
+    --copper: #b87333;
+    --dark-copper: #7E3517;
+    --aged-paper: #e8ddcb;
+    --dark-wood: #4e3629;
+    --medium-wood: #795644;
+    --light-wood: #a67f63;
+    --dark-leather: #5c4033;
+    --medium-leather: #8b4513;
+    --light-leather: #cd853f;
+    --steam-white: rgba(255, 255, 255, 0.8);
+    --background: #151410;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Special Elite', cursive;
+    background-color: var(--background);
+    color: var(--aged-paper);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Steampunk Background Elements */
+
+.gear-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: url('https://www.transparenttextures.com/patterns/black-paper.png');
+    background-color: var(--background);
+    overflow: hidden;
+}
+
+.gear {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.2;
+    transform-origin: center;
+    animation: rotate linear infinite;
+}
+
+.gear1 {
+    width: 300px;
+    height: 300px;
+    top: -80px;
+    left: -80px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1055/1055683.png');
+    animation-duration: 120s;
+}
+
+.gear2 {
+    width: 200px;
+    height: 200px;
+    bottom: 10%;
+    right: 5%;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/4149/4149878.png');
+    animation-duration: 90s;
+    animation-direction: reverse;
+}
+
+.gear3 {
+    width: 400px;
+    height: 400px;
+    bottom: -150px;
+    left: -100px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3099/3099392.png');
+    animation-duration: 150s;
+}
+
+.gear4 {
+    width: 180px;
+    height: 180px;
+    top: 15%;
+    right: 10%;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2793/2793178.png');
+    animation-duration: 80s;
+}
+
+.gear5 {
+    width: 250px;
+    height: 250px;
+    top: 40%;
+    left: 5%;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3095/3095591.png');
+    animation-duration: 100s;
+    animation-direction: reverse;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Steam Particles */
+.steam-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+    overflow: hidden;
+}
+
+/* Login Container */
+.login-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 500px;
+    perspective: 1000px;
+    margin: 20px;
+}
+
+.mechanical-panel {
+    background: linear-gradient(145deg, var(--dark-wood), var(--medium-wood));
+    border: 8px solid var(--brass);
+    border-radius: 10px;
+    box-shadow: 
+        0 0 0 2px var(--dark-copper),
+        0 0 20px rgba(0, 0, 0, 0.5),
+        inset 0 0 15px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-out;
+}
+
+.mechanical-panel:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.mechanical-panel:hover {
+    transform: rotateX(5deg) rotateY(-5deg);
+}
+
+/* Panel Header */
+.panel-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.steampunk-title {
+    font-family: 'Almendra', serif;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    color: var(--brass);
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.steampunk-title:before, 
+.steampunk-title:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, var(--brass), transparent);
+    top: 50%;
+}
+
+.steampunk-title:before {
+    left: -70px;
+}
+
+.steampunk-title:after {
+    right: -70px;
+}
+
+/* Rivets */
+.rivets {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.rivet {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: var(--brass);
+    border-radius: 50%;
+    box-shadow: inset -2px -2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.rivet:nth-child(1) {
+    top: 5px;
+    left: 5px;
+}
+
+.rivet:nth-child(2) {
+    top: 5px;
+    right: 5px;
+}
+
+.rivet:nth-child(3) {
+    bottom: 5px;
+    left: 5px;
+}
+
+.rivet:nth-child(4) {
+    bottom: 5px;
+    right: 5px;
+}
+
+/* Pressure Gauge */
+.pressure-gauge {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 0;
+    top: -15px;
+    transform: translateX(25%);
+}
+
+.gauge-face {
+    width: 100%;
+    height: 100%;
+    background: var(--aged-paper);
+    border-radius: 50%;
+    border: 4px solid var(--brass);
+    box-shadow: 
+        0 0 0 2px var(--dark-copper),
+        inset 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.gauge-face:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 70% 70%, transparent 68%, rgba(0, 0, 0, 0.1) 70%),
+        conic-gradient(from 135deg, red, yellow, green, red);
+    opacity: 0.2;
+    border-radius: 50%;
+}
+
+.gauge-needle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 35px;
+    height: 4px;
+    background: var(--dark-copper);
+    transform: translate(-100%, -50%);
+    transform-origin: 100% 50%;
+    border-radius: 2px;
+    z-index: 2;
+    animation: gauge-animation 8s ease-in-out infinite;
+}
+
+.gauge-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    background: var(--brass);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset -2px -2px 2px rgba(0, 0, 0, 0.3);
+    z-index: 3;
+}
+
+@keyframes gauge-animation {
+    0%, 100% { transform: translate(-100%, -50%) rotate(-45deg); }
+    25% { transform: translate(-100%, -50%) rotate(25deg); }
+    50% { transform: translate(-100%, -50%) rotate(-20deg); }
+    75% { transform: translate(-100%, -50%) rotate(45deg); }
+}
+
+/* Form Styles */
+.login-form {
+    position: relative;
+    z-index: 10;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--brass);
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+
+.input-container input {
+    width: 100%;
+    height: 100%;
+    background: var(--aged-paper);
+    border: 2px solid var(--brass);
+    border-radius: 5px;
+    padding: 10px 50px 10px 15px;
+    font-family: 'Special Elite', cursive;
+    font-size: 1rem;
+    color: var(--dark-copper);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.input-container input:focus {
+    outline: none;
+    border-color: var(--copper);
+    box-shadow: 0 0 10px rgba(184, 115, 51, 0.3), inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Mechanism */
+.input-mechanism {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    z-index: 2;
+    height: 30px;
+    width: 30px;
+    pointer-events: none;
+}
+
+.cogs {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+.small-cog, .medium-cog {
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform-origin: center;
+}
+
+.small-cog {
+    width: 20px;
+    height: 20px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2793/2793178.png');
+    right: 0;
+    top: 0;
+    animation: rotate-fast 10s linear infinite;
+}
+
+.medium-cog {
+    width: 25px;
+    height: 25px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3099/3099392.png');
+    right: 10px;
+    bottom: 0;
+    animation: rotate-fast 10s linear infinite reverse;
+}
+
+@keyframes rotate-fast {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.lock-mechanism {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/2089/2089795.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Toggle Password */
+.toggle-password {
+    position: absolute;
+    right: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    z-index: 3;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.toggle-password:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.key-mechanism {
+    width: 20px;
+    height: 20px;
+}
+
+.key {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1286/1286611.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.toggle-password:hover .key {
+    transform: rotate(90deg);
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.lever-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.lever {
+    position: relative;
+    width: 40px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.lever-base {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--dark-leather);
+    border-radius: 4px;
+    transform: translateY(-50%);
+    border: 1px solid var(--brass);
+}
+
+.lever-handle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--brass), var(--dark-brass));
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.lever-checkbox:checked + .checkbox-label .lever-handle {
+    left: 20px;
+    background: linear-gradient(145deg, var(--light-brass), var(--brass));
+}
+
+.brass-link {
+    color: var(--brass);
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.brass-link:hover {
+    color: var(--light-brass);
+}
+
+.brass-link:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--brass);
+    transition: width 0.3s ease;
+}
+
+.brass-link:hover:after {
+    width: 100%;
+}
+
+/* Login Button */
+.login-button {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.button-brass-plate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(145deg, var(--brass), var(--dark-brass));
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--dark-copper);
+    box-shadow: 
+        0 5px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.button-brass-plate:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.button-brass-plate span {
+    color: var(--dark-wood);
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.login-button:hover .button-brass-plate {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.4),
+        inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.login-button:active .button-brass-plate {
+    transform: translateY(0);
+    box-shadow: 
+        0 3px 10px rgba(0, 0, 0, 0.2),
+        inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.steam-release {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.login-button:hover .steam-release {
+    opacity: 1;
+}
+
+/* Panel Footer */
+.panel-footer {
+    margin-top: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.register-text {
+    font-size: 0.9rem;
+    color: var(--aged-paper);
+    margin-bottom: 20px;
+}
+
+.mechanical-separator {
+    position: relative;
+    height: 30px;
+    margin: 20px 0;
+}
+
+.piston {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(145deg, var(--brass), var(--dark-brass));
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.left-piston {
+    left: 0;
+}
+
+.right-piston {
+    right: 0;
+}
+
+.piston-rod {
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    right: 25px;
+    height: 4px;
+    background: var(--brass);
+    transform: translateY(-50%);
+}
+
+/* Wax Seal */
+.wax-seal {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+.wax {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #b22222, #8b0000);
+    box-shadow: 0 0 10px rgba(139, 0, 0, 0.5);
+}
+
+.seal-imprint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffe4c4;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Media Queries */
+@media (max-width: 576px) {
+    .mechanical-panel {
+        padding: 20px;
+    }
+
+    .steampunk-title {
+        font-size: 1.8rem;
+    }
+
+    .steampunk-title:before, 
+    .steampunk-title:after {
+        width: 40px;
+    }
+
+    .steampunk-title:before {
+        left: -50px;
+    }
+
+    .steampunk-title:after {
+        right: -50px;
+    }
+
+    .pressure-gauge {
+        width: 60px;
+        height: 60px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .brass-link {
+        margin-top: 15px;
+    }
+}
+
+/* CSS for Steam Particles */
+@keyframes rise {
+    0% {
+        transform: translateY(0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-300px) scale(2);
+        opacity: 0;
+    }
+}
+
+.steam {
+    position: absolute;
+    bottom: 0;
+    background: var(--steam-white);
+    border-radius: 50%;
+    filter: blur(10px);
+    pointer-events: none;
+}
